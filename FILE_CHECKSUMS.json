@@ -1,22 +1,86 @@
 {
-  ".gitignore": "56dc6a1bcd9cf406573083d684b415b608fc2f656b626957a4501adf37fc888a",
-  ".streamlit/config.toml": "66971492d005b41b167c11972f4a7f31883aa0b36640a81256a9140e27ab9d37",
-  ".streamlit/style.css": "cf91cadac8f151e328bb281b6dc95eaaab301b63741bc9ac34da87f71b4fb076",
-  "CHANGELOG.md": "bdbaddba6c579265f99705defa6e6f3f3e7efc6c496d13669e5b78e5b3e8e916",
-  "README.md": "1b83b3d6420c162e2bc87b78b8d3e98e4d012e8b9367084d6fe5baa89c6bb33c",
-  "app.py": "a888c7ac048303793f01a99650626e3d6b26069da136aa84ff4d9502a694a018",
-  "components/__init__.py": "51d68e8c240de688e22fe63347273650b7e555447cfcd89889b5a4c103583be7",
-  "components/cards.py": "ab78a3282a407e189d5adac21f74cbaa094e1f70d0d28e60c6bb251f21186957",
-  "components/layout.py": "72d556cb4804c6406c76f6820c9c3bb4be2e0be86f5517609cc29917cbd8a64e",
-  "config.py": "666715a5e87307d7deaec1cf52399af91d04328223372869cb848652329f35da",
-  "pages/dashboard.py": "8e72611f579159271b7d3c5f70811f61835166e119886b95c07f995e46fd48c9",
-  "pages/developer_status.py": "cefa2b5b61303809a183617051131256a5fe7d0cd94ddae3321d7aa7e1a1b713",
-  "pages/portfolio.py": "cb5bf5928f44de327de6c1b46a7e7fca368a7799b8b36b210ef562624e963ff0",
-  "portfolio_config.py": "05eac7a1b77713b5d7cf8c4f95a09d248d06322e9e23651fd28d17f68b5236a8",
-  "requirements.txt": "038794e17dcd77dbba6763c6e0e3c8f31574ae767cd7d16441185271e975de66",
-  "services/__init__.py": "c3220216788be7ca58210136d63711846a6a79f4d0b5468c9d53264c6da0e50a",
-  "services/fear_greed.py": "9e2efe5f47d31c63ddaae1769d67eded3568512bdf87402289480270296d124b",
-  "services/formatting.py": "59e70894630806698aa015aa79a03cd6de28e5c2b04a54c4f7ad20a60488b131",
-  "services/market_data.py": "85964c86cfa01c135146952e4560fd58f30d7e99d6b005a9a98ea6a5fed33ed3",
-  "services/portfolio_data.py": "4b1f3279688a4706fff199ffaadbddc4282915b692ae1ae2895314df7316b217"
+  ".gitignore": {
+    "sha256": "56dc6a1bcd9cf406573083d684b415b608fc2f656b626957a4501adf37fc888a",
+    "bytes": 71
+  },
+  ".streamlit/config.toml": {
+    "sha256": "66971492d005b41b167c11972f4a7f31883aa0b36640a81256a9140e27ab9d37",
+    "bytes": 194
+  },
+  ".streamlit/style.css": {
+    "sha256": "cf91cadac8f151e328bb281b6dc95eaaab301b63741bc9ac34da87f71b4fb076",
+    "bytes": 551
+  },
+  "CHANGELOG.md": {
+    "sha256": "55f6bb8fc1849b9f988e066a550b645714cb52779a9b9622db72fe70728a3110",
+    "bytes": 644
+  },
+  "README.md": {
+    "sha256": "c1b773361d681c829aaff4dbf1b683547cec135265962ab8c9ed39132306e2f7",
+    "bytes": 300
+  },
+  "RELEASE_0.3.1.txt": {
+    "sha256": "c1e9d0b73c8e7d417e87b3cd5ff07a5619a2e96402dabcbff9dd411a707df60c",
+    "bytes": 258
+  },
+  "app.py": {
+    "sha256": "a888c7ac048303793f01a99650626e3d6b26069da136aa84ff4d9502a694a018",
+    "bytes": 632
+  },
+  "components/__init__.py": {
+    "sha256": "51d68e8c240de688e22fe63347273650b7e555447cfcd89889b5a4c103583be7",
+    "bytes": 37
+  },
+  "components/cards.py": {
+    "sha256": "ab78a3282a407e189d5adac21f74cbaa094e1f70d0d28e60c6bb251f21186957",
+    "bytes": 849
+  },
+  "components/layout.py": {
+    "sha256": "72d556cb4804c6406c76f6820c9c3bb4be2e0be86f5517609cc29917cbd8a64e",
+    "bytes": 356
+  },
+  "config.py": {
+    "sha256": "1addfb55b210d858babf9703dae1931dcb45409f0fd951c725fdedfbfa1274e0",
+    "bytes": 392
+  },
+  "pages/dashboard.py": {
+    "sha256": "8e72611f579159271b7d3c5f70811f61835166e119886b95c07f995e46fd48c9",
+    "bytes": 2705
+  },
+  "pages/developer_status.py": {
+    "sha256": "cefa2b5b61303809a183617051131256a5fe7d0cd94ddae3321d7aa7e1a1b713",
+    "bytes": 1796
+  },
+  "pages/portfolio.py": {
+    "sha256": "a4e28254ffc0afa554e90f6b501a536224f0c3532fc396d1f65389fc1f237267",
+    "bytes": 2333
+  },
+  "portfolio_config.py": {
+    "sha256": "05eac7a1b77713b5d7cf8c4f95a09d248d06322e9e23651fd28d17f68b5236a8",
+    "bytes": 1260
+  },
+  "requirements.txt": {
+    "sha256": "515a12fab13bed6c365f9a1b4240520b698f9c6ef9113520d519cba168326853",
+    "bytes": 37
+  },
+  "services/__init__.py": {
+    "sha256": "c3220216788be7ca58210136d63711846a6a79f4d0b5468c9d53264c6da0e50a",
+    "bytes": 47
+  },
+  "services/fear_greed.py": {
+    "sha256": "9e2efe5f47d31c63ddaae1769d67eded3568512bdf87402289480270296d124b",
+    "bytes": 949
+  },
+  "services/formatting.py": {
+    "sha256": "59e70894630806698aa015aa79a03cd6de28e5c2b04a54c4f7ad20a60488b131",
+    "bytes": 1087
+  },
+  "services/market_data.py": {
+    "sha256": "85964c86cfa01c135146952e4560fd58f30d7e99d6b005a9a98ea6a5fed33ed3",
+    "bytes": 2562
+  },
+  "services/portfolio_data.py": {
+    "sha256": "4b1f3279688a4706fff199ffaadbddc4282915b692ae1ae2895314df7316b217",
+    "bytes": 1662
+  }
 }

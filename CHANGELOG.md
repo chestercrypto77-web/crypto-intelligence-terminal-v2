@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.1
+
+- Rebuilt as a complete repository snapshot.
+- Verified FEAR_GREED_URL and every required configuration constant.
+- Removed the unnecessary pandas dependency.
+- Verified every Python file compiles.
+- Verified local module imports and portfolio calculations.
+- Added a release marker and fresh integrity checksums.
+
 ## 0.3.0
 
 - Added Fear & Greed data service.
@@ -11,7 +20,3 @@
 ## 0.2.1
 
 - Rebuilt and verified the live market foundation.
-
-## 0.1.0
-
-- Created the Version 2 foundation.

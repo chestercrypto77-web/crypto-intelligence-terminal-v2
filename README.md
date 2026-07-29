@@ -1,6 +1,6 @@
 # Crypto Intelligence Terminal V2
 
-## Release 0.3.0
+## Release 0.3.1
 
 - Live global market dashboard
 - Crypto Fear & Greed indicator

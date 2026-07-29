@@ -1,4 +1,3 @@
-import pandas as pd
 import streamlit as st
 
 from components.cards import metric_card, status_bar
@@ -49,7 +48,7 @@ try:
 
     st.subheader("Holdings")
     st.dataframe(
-        pd.DataFrame(table_rows),
+        table_rows,
         use_container_width=True,
         hide_index=True,
     )
