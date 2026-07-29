@@ -18,6 +18,7 @@ navigation = st.navigation(
     {
         "Terminal": [
             st.Page("pages/dashboard.py", title="Dashboard", icon="🏠", default=True),
+            st.Page("pages/portfolio.py", title="Portfolio", icon="💼"),
             st.Page("pages/developer_status.py", title="Developer Status", icon="🛠️"),
         ]
     }

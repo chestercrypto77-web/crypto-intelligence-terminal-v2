@@ -56,8 +56,11 @@ def get_market_snapshot() -> dict[str, Any]:
     coins = {
         item["id"]: {
             "name": item.get("name", item["id"].title()),
+            "symbol": item.get("symbol", "").upper(),
             "price": item.get("current_price"),
             "change_24h": item.get("price_change_percentage_24h"),
+            "market_cap": item.get("market_cap"),
+            "rank": item.get("market_cap_rank"),
         }
         for item in coin_payload
         if item.get("id")

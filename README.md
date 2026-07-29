@@ -1,11 +1,12 @@
 # Crypto Intelligence Terminal V2
 
-## Release 0.2.1
+## Release 0.3.0
 
-- Live CoinGecko global market data
-- Bitcoin and Ethereum cards
-- Five-minute data cache and manual refresh
-- Shared components, configuration and formatting
-- Developer status checks
+- Live global market dashboard
+- Crypto Fear & Greed indicator
+- Portfolio Intelligence page
+- Weighted portfolio score, risk and momentum
+- Live prices for ETH, LINK, ONDO, HYPE, COTI and ZIL
+- Developer connection checks
 
 Deploy using `app.py`.
