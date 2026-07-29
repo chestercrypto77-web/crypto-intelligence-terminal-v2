@@ -4,16 +4,16 @@
     "bytes": 71
   },
   "CHANGELOG.md": {
-    "sha256": "4eb424d17db0e65ecf3c09457cdb8aefa87eb77a82ac5e828415f2a791cb0c10",
-    "bytes": 392
+    "sha256": "19953f3236718ce1dcf53fcb8aa51a759691c3bf6f11d6a62544a229c704f8ac",
+    "bytes": 416
   },
   "README.md": {
-    "sha256": "81a0b2cec6fdb958779ed41d40c4b9e8ff30fe0aa02919a35e1f866dbef30cbd",
-    "bytes": 565
+    "sha256": "8651bd081eab7dd6c699236b326d0125c21b124d5cfd20f85e7644db8a143940",
+    "bytes": 725
   },
   "app.py": {
-    "sha256": "08505ea9c09708063f78fb8d98b51de95d5332c70e1653ec99ee518f3ec96096",
-    "bytes": 754
+    "sha256": "0ddddd656813f02b2a6613cf3e2186ec30a0492f997dbdc788626a2c10426a48",
+    "bytes": 1015
   },
   "components/__init__.py": {
     "sha256": "9e04b070ae9cba621a15b99c46fc338c8984bfb20a910527151b5bb298b9548c",
@@ -28,20 +28,32 @@
     "bytes": 139
   },
   "components/theme.py": {
-    "sha256": "8abbc449a1ec0111a4f9cbfffe37603c3805cb478f42306ed29d5e24f7c62032",
-    "bytes": 971
+    "sha256": "1ab097b0209b40b997b30ec265ae293a28b1faf63a4f5955a1c91b171d5ab00f",
+    "bytes": 1145
   },
   "config.py": {
-    "sha256": "1cb2e6f53a990090c1c2e37e8c516e0ca6bbb7f8911f874534b91bceda909f92",
-    "bytes": 544
+    "sha256": "ee14162a5e3ce878fb7c2b8677415b3107d1a29084bb1ab94e64e26c144d9313",
+    "bytes": 615
+  },
+  "pages/conviction.py": {
+    "sha256": "031a2c06d6649948e3115907c5987f7da370d297820b41ae828c7562c8b03e97",
+    "bytes": 2910
   },
   "pages/dashboard.py": {
-    "sha256": "25a83ddefa2884988326d9ebf92b7684d264c35b323ecee0f70acdcaa8604f86",
-    "bytes": 2477
+    "sha256": "869b7e6b9dada607584f68e23fec5737bfe5f24c7926f688d77ef92a4642cd24",
+    "bytes": 2508
+  },
+  "pages/defi_intelligence.py": {
+    "sha256": "6004b066f010dd69d0d072672cf4a8b4f17665f17e0eb54bc2a3074888b838dc",
+    "bytes": 2988
   },
   "pages/developer_status.py": {
-    "sha256": "f2378c9aae746f37c4484bea7ce098f1b934523a95465b51657a05a2127a8132",
-    "bytes": 1774
+    "sha256": "2bfd08ab78c2a39f08d45b3d5b006a8a8780b61efc631424aabe1152e042b453",
+    "bytes": 1769
+  },
+  "pages/market_briefing.py": {
+    "sha256": "3d7b182b6e21ed1eb4b07009c7333a052daccf4a278aa3af10f1ae72de92591c",
+    "bytes": 2253
   },
   "pages/opportunity_scanner.py": {
     "sha256": "4adc635c9f2bd3aeb7fa16ea0565dd12eb49fad247f362ff3d8dc2df29d592d4",
@@ -67,9 +79,21 @@
     "sha256": "1b3886c5b6c724ef3784b6ceea86c876d714a66cac78278d91e259cad617ec3c",
     "bytes": 49
   },
+  "services/briefing.py": {
+    "sha256": "208dbb2eab48c6f23f0e2c43e57bef09ac6285b69f2a14037d8b2111cf45c6cf",
+    "bytes": 3644
+  },
   "services/category_data.py": {
     "sha256": "edd74d8acb20dbde69c6cc034a4b56a935f86fc4ca192ade83539be49972e667",
     "bytes": 1682
+  },
+  "services/conviction.py": {
+    "sha256": "45f66574d9362064deeddf0daf7f5a71fdbe3ceb001a4e220cd111aedf3302d2",
+    "bytes": 1504
+  },
+  "services/defillama.py": {
+    "sha256": "7e61320dd4908214965d5b826275aa5d0e4617010ea0a5dc4e26ff4e0caf64ed",
+    "bytes": 2290
   },
   "services/fear_greed.py": {
     "sha256": "f431ead5ddff86a49ffb6d67a441fc96e44eb9b5228b7acb792d73b02d1a4eaa",
@@ -96,7 +120,7 @@
     "bytes": 3480
   },
   "tests/test_intelligence.py": {
-    "sha256": "76a18f6874390f98ff613af84ec3034d1eea16e1ca1dc5057859ebb478ec7d98",
-    "bytes": 1267
+    "sha256": "d9350343ca9ffdff6f2c72bfc9604acd7084aa9c05563c39a99efc4b66e26f1f",
+    "bytes": 1729
   }
 }

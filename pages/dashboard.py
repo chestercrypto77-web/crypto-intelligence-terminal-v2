@@ -1,4 +1,5 @@
 import streamlit as st
+
 from components.cards import metric_card, status_bar
 from components.layout import page_header
 from config import APP_NAME, APP_VERSION
@@ -16,6 +17,7 @@ if st.button("Refresh all data"):
 try:
     snapshot = get_market_snapshot()
     status_bar(APP_VERSION, utc_time(snapshot["updated_at"]), snapshot["source"])
+
     try:
         sentiment = get_fear_greed()
     except FearGreedError:
@@ -47,10 +49,10 @@ try:
     st.subheader("Terminal modules")
     modules = st.columns(4)
     module_data = (
-        ("Portfolio", "Live", "Weighted holdings intelligence"),
-        ("What's Hot", "Live", "Narrative category momentum"),
-        ("Opportunity Scanner", "Live", "Top-100 market scoring"),
-        ("AI Briefing", "Next", "Planned for Release 0.5"),
+        ("Market Briefing", "Live", "Transparent rule-based summary"),
+        ("Conviction Engine", "Live", "Risk-adjusted research ranking"),
+        ("DeFi Intelligence", "Live", "DeFiLlama TVL and sector data"),
+        ("Historical Tracking", "Next", "Planned for Release 0.6"),
     )
     for col, item in zip(modules, module_data):
         with col:

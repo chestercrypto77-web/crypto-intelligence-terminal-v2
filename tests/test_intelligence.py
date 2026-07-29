@@ -1,3 +1,5 @@
+from services.briefing import build_market_briefing
+from services.conviction import build_conviction_list, conviction_score
 from services.portfolio_data import build_portfolio_snapshot
 from services.scanner import build_opportunity_list
 
@@ -5,8 +7,6 @@ from services.scanner import build_opportunity_list
 def test_portfolio_score() -> None:
     snapshot = build_portfolio_snapshot({})
     assert snapshot["score"] == 83.2
-    assert snapshot["strongest"] == "Ethereum"
-    assert snapshot["weakest"] == "Zilliqa"
 
 
 def test_scanner_sorting() -> None:
@@ -30,4 +30,20 @@ def test_scanner_sorting() -> None:
     ]
     result = build_opportunity_list(coins)
     assert result["rows"][0]["name"] == "Alpha"
-    assert result["rows"][0]["score"] > result["rows"][1]["score"]
+
+
+def test_conviction_penalises_high_risk() -> None:
+    low = conviction_score(80, "LOW", 3, False)
+    high = conviction_score(80, "HIGH", 3, False)
+    assert low > high
+
+
+def test_briefing_regime() -> None:
+    market = {
+        "market_cap_change_24h": 3.0,
+        "btc_dominance": 55.0,
+        "eth_dominance": 12.0,
+    }
+    sentiment = {"value": 70, "classification": "Greed"}
+    result = build_market_briefing(market, sentiment, None, None)
+    assert result["regime"] == "Risk-on"

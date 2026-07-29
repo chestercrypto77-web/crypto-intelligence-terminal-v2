@@ -24,9 +24,16 @@ CSS = '''
   background: rgba(255,255,255,0.025);
   margin-bottom: 1rem;
 }
-.score-high { color: #37c99b; font-weight: 700; }
-.score-medium { color: #e4b84c; font-weight: 700; }
-.score-low { color: #ee7282; font-weight: 700; }
+.briefing-panel {
+  border: 1px solid rgba(91,140,255,0.35);
+  border-radius: 14px;
+  padding: 20px;
+  background: rgba(91,140,255,0.06);
+  line-height: 1.65;
+}
+.signal-positive { color: #37c99b; font-weight: 700; }
+.signal-caution { color: #e4b84c; font-weight: 700; }
+.signal-negative { color: #ee7282; font-weight: 700; }
 </style>
 '''
 
