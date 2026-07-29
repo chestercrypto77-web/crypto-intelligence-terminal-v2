@@ -1,9 +1,11 @@
-APP_NAME = "Crypto Intelligence Terminal V2"
-APP_VERSION = "0.2.0"
+# Crypto Intelligence Terminal V2
 
-COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3"
-MARKET_CACHE_SECONDS = 300
-REQUEST_TIMEOUT_SECONDS = 15
+## Release 0.2.1
 
-TRACKED_COINS = ("bitcoin", "ethereum")
-DISPLAY_CURRENCY = "usd"
+- Live CoinGecko global market data
+- Bitcoin and Ethereum cards
+- Five-minute data cache and manual refresh
+- Shared components, configuration and formatting
+- Developer status checks
+
+Deploy using `app.py`.
