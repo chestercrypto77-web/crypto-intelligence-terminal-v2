@@ -1,18 +1,9 @@
-# Changelog
+APP_NAME = "Crypto Intelligence Terminal V2"
+APP_VERSION = "0.2.0"
 
-## 0.2.0
+COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3"
+MARKET_CACHE_SECONDS = 300
+REQUEST_TIMEOUT_SECONDS = 15
 
-- Added live CoinGecko market-data service.
-- Added five-minute Streamlit caching and manual refresh.
-- Added market-cap, volume, dominance, BTC and ETH cards.
-- Added shared configuration and formatting utilities.
-- Added structured logging and graceful API error handling.
-- Expanded Developer Status checks.
-
-## 0.1.0
-
-- Created clean Version 2 foundation.
-- Added explicit Streamlit navigation.
-- Added Dashboard and Developer Status pages.
-- Added reusable layout and metric-card components.
-- Added dark Streamlit theme.
+TRACKED_COINS = ("bitcoin", "ethereum")
+DISPLAY_CURRENCY = "usd"
