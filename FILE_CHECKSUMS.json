@@ -4,36 +4,36 @@
     "bytes": 71
   },
   "CHANGELOG.md": {
-    "sha256": "19953f3236718ce1dcf53fcb8aa51a759691c3bf6f11d6a62544a229c704f8ac",
-    "bytes": 416
+    "sha256": "a7e0aa6abb8704cdd136b979b5d3209219dac8d61c7b70fdce6223f597f4efb5",
+    "bytes": 474
   },
   "README.md": {
-    "sha256": "8651bd081eab7dd6c699236b326d0125c21b124d5cfd20f85e7644db8a143940",
-    "bytes": 725
+    "sha256": "d31791c43cc96cb1718f749fae65783e24736e88aef0349db35e46123365d073",
+    "bytes": 1016
   },
   "app.py": {
-    "sha256": "0ddddd656813f02b2a6613cf3e2186ec30a0492f997dbdc788626a2c10426a48",
-    "bytes": 1015
+    "sha256": "17d031f1019f3e55f4ffdfa4e351cf4924c7720a7e1694bb6b94b79343030803",
+    "bytes": 1279
   },
   "components/__init__.py": {
     "sha256": "9e04b070ae9cba621a15b99c46fc338c8984bfb20a910527151b5bb298b9548c",
     "bytes": 42
   },
   "components/cards.py": {
-    "sha256": "51e22cf9959cc1b78516f0e719601c317c6961d5e6fdd9f061515349ad52590c",
-    "bytes": 848
+    "sha256": "4e49aacd4239b05ea0815536ba341365be5278eee395f18a14072012ccbe847d",
+    "bytes": 998
   },
   "components/layout.py": {
     "sha256": "40e8c014d1700cf41dd0b9fcf696dedce8071aa0c74947876ad42e85c82489b3",
     "bytes": 139
   },
   "components/theme.py": {
-    "sha256": "1ab097b0209b40b997b30ec265ae293a28b1faf63a4f5955a1c91b171d5ab00f",
-    "bytes": 1145
+    "sha256": "35e1a619751ea957b4ed2c2e0e0f293e79af94801e7cc7abfdf58e96129f318f",
+    "bytes": 1717
   },
   "config.py": {
-    "sha256": "ee14162a5e3ce878fb7c2b8677415b3107d1a29084bb1ab94e64e26c144d9313",
-    "bytes": 615
+    "sha256": "5c5121c32b922d717fdfc7627980bbef046668ec88abae11f613a66c8724ecec",
+    "bytes": 824
   },
   "pages/conviction.py": {
     "sha256": "031a2c06d6649948e3115907c5987f7da370d297820b41ae828c7562c8b03e97",
@@ -48,12 +48,20 @@
     "bytes": 2988
   },
   "pages/developer_status.py": {
-    "sha256": "2bfd08ab78c2a39f08d45b3d5b006a8a8780b61efc631424aabe1152e042b453",
-    "bytes": 1769
+    "sha256": "01eefb782b50402105f044ac8d8bdcb6ed1ebe566964f9b6372dda15c9e86758",
+    "bytes": 2134
+  },
+  "pages/history.py": {
+    "sha256": "37828dce62f1cbc4119219bbe1874a9bec572e16c47e4899eed2dae95eeffeb8",
+    "bytes": 4904
   },
   "pages/market_briefing.py": {
     "sha256": "3d7b182b6e21ed1eb4b07009c7333a052daccf4a278aa3af10f1ae72de92591c",
     "bytes": 2253
+  },
+  "pages/mission_control.py": {
+    "sha256": "15e806ce0b845a8a8967a623e4dc0627e989cb0abd989f2c531d494d08dd10b7",
+    "bytes": 3899
   },
   "pages/opportunity_scanner.py": {
     "sha256": "4adc635c9f2bd3aeb7fa16ea0565dd12eb49fad247f362ff3d8dc2df29d592d4",
@@ -62,6 +70,10 @@
   "pages/portfolio.py": {
     "sha256": "04c771d7397f98cd72a5afe4095744473fe8414fb1b11cb7cf16a994306ae526",
     "bytes": 2026
+  },
+  "pages/watchlist.py": {
+    "sha256": "8ebe6154908abec3d02d58953484bd8aa87c3dbf4ff9f6cf5e2b1c57d43da7c8",
+    "bytes": 3746
   },
   "pages/whats_hot.py": {
     "sha256": "631b71b795471b83cdf5676c6f5b7df684f8fb76fd33c252af3c99f773d00dd9",
@@ -103,6 +115,10 @@
     "sha256": "90aa49ece6a0d71cf3b54cccc9161408098d738964d730ae789f851b20224e6c",
     "bytes": 1216
   },
+  "services/history_store.py": {
+    "sha256": "5a63e92a10b2db653081f121d43942a2ff5603df119ed03be6c566a1ceb02bf3",
+    "bytes": 6155
+  },
   "services/http_client.py": {
     "sha256": "601ee204b1b28b90e3c40e9d79fc92234ce4408feb3881c0dbfa1a331810bfb3",
     "bytes": 663
@@ -118,6 +134,18 @@
   "services/scanner.py": {
     "sha256": "fcde21155e6aeb8f220354218e234f004b59406e07812430b4750a0402c48a15",
     "bytes": 3480
+  },
+  "services/snapshot_engine.py": {
+    "sha256": "324f0d365155bbc43741b6f16cede10cd2776d6870814757cb9709fbfa4fffd8",
+    "bytes": 1642
+  },
+  "services/trends.py": {
+    "sha256": "1d7b4ee640651c78a1e3eb75f7ec5fc8a325807dc556bad4cf6aadf6e000238e",
+    "bytes": 1131
+  },
+  "tests/test_history.py": {
+    "sha256": "2aa323d6bbd1f9965d104ada074d19fd5476e53f9f662999eeb3089efdf080ee",
+    "bytes": 700
   },
   "tests/test_intelligence.py": {
     "sha256": "d9350343ca9ffdff6f2c72bfc9604acd7084aa9c05563c39a99efc4b66e26f1f",

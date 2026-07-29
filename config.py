@@ -1,5 +1,5 @@
 APP_NAME = "Crypto Intelligence Terminal V2"
-APP_VERSION = "0.5.0"
+APP_VERSION = "0.6.0"
 
 COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3"
 FEAR_GREED_URL = "https://api.alternative.me/fng/"
@@ -25,3 +25,14 @@ SCANNER_MIN_VOLUME = 2_000_000
 SCANNER_MAX_ABS_24H_CHANGE = 80.0
 HOT_CATEGORY_COUNT = 10
 DEFI_PROTOCOL_COUNT = 150
+
+HISTORY_DATABASE_PATH = "data/intelligence_history.db"
+HISTORY_DEFAULT_DAYS = 30
+WATCHLIST_DEFAULT_IDS = (
+    "ethereum",
+    "chainlink",
+    "ondo-finance",
+    "hyperliquid",
+    "coti",
+    "zilliqa",
+)

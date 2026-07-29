@@ -1,16 +1,18 @@
 # Changelog
 
+## 0.6.0
+
+- Added Mission Control.
+- Added grouped, streamlined navigation.
+- Added Historical Intelligence and SQLite snapshot storage.
+- Added market, portfolio, sentiment, opportunity and conviction history.
+- Added trend classification and charts.
+- Added Watchlist.
+- Added database backup and restore controls.
+- Expanded developer diagnostics for history storage.
+
 ## 0.5.0
 
-- Added transparent rule-based Market Briefing.
-- Added Conviction Engine with risk and portfolio-overlap adjustments.
-- Added DeFi Intelligence using DeFiLlama protocol TVL data.
-- Added DeFi sector and chain leadership.
-- Expanded developer API diagnostics.
-- Added briefing and conviction tests.
-
-## 0.4.0
-
-- Added What's Hot Now.
-- Added Opportunity Scanner.
-- Embedded styling in Python.
+- Added Market Briefing.
+- Added Conviction Engine.
+- Added DeFi Intelligence.

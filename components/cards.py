@@ -19,10 +19,17 @@ def status_bar(version: str, updated_at: str, source: str) -> None:
     st.markdown(
         f'''
         <div class="terminal-status">
-          <strong>Version {html.escape(str(version))}</strong>
+          <strong>v{html.escape(str(version))}</strong>
           &nbsp;·&nbsp; Updated {html.escape(str(updated_at))}
-          &nbsp;·&nbsp; Source: {html.escape(str(source))}
+          &nbsp;·&nbsp; {html.escape(str(source))}
         </div>
         ''',
+        unsafe_allow_html=True,
+    )
+
+
+def section_label(text: str) -> None:
+    st.markdown(
+        f'<div class="section-label">{html.escape(str(text))}</div>',
         unsafe_allow_html=True,
     )
