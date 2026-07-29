@@ -1,32 +1,36 @@
-.terminal-card {
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 14px;
-  padding: 18px;
-  min-height: 126px;
-  background: rgba(255,255,255,0.035);
-}
+import html
 
-.terminal-card-label {
-  opacity: 0.72;
-  font-size: 0.85rem;
-}
+import streamlit as st
 
-.terminal-card-value {
-  font-size: 1.45rem;
-  font-weight: 700;
-  margin-top: 8px;
-}
 
-.terminal-card-note {
-  opacity: 0.65;
-  font-size: 0.8rem;
-  margin-top: 10px;
-}
+def metric_card(label: str, value: str, note: str = "") -> None:
+    st.markdown(
+        f"""
+        <div class="terminal-card">
+          <div class="terminal-card-label">{html.escape(str(label))}</div>
+          <div class="terminal-card-value">{html.escape(str(value))}</div>
+          <div class="terminal-card-note">{html.escape(str(note))}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-.terminal-status {
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 10px;
-  padding: 10px 14px;
-  background: rgba(255,255,255,0.025);
-  margin-bottom: 1rem;
-}
+
+def status_bar(version: str, updated_at: str, source: str) -> None:
+    st.markdown(
+        f"""
+        <div class="terminal-status">
+          <strong>v{html.escape(str(version))}</strong>
+          &nbsp;·&nbsp; Updated {html.escape(str(updated_at))}
+          &nbsp;·&nbsp; {html.escape(str(source))}
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def section_label(text: str) -> None:
+    st.markdown(
+        f'<div class="section-label">{html.escape(str(text))}</div>',
+        unsafe_allow_html=True,
+    )
