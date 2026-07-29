@@ -1,5 +1,5 @@
 APP_NAME = "Crypto Intelligence Terminal V2"
-APP_VERSION = "0.6.0"
+APP_VERSION = "0.7.0"
 
 COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3"
 FEAR_GREED_URL = "https://api.alternative.me/fng/"
@@ -12,14 +12,41 @@ DISPLAY_CURRENCY = "usd"
 TRACKED_COINS = (
     "bitcoin",
     "ethereum",
+    "solana",
+    "ripple",
+    "binancecoin",
     "chainlink",
     "hyperliquid",
     "ondo-finance",
-    "coti",
-    "zilliqa",
+    "aave",
+    "uniswap",
+    "avalanche-2",
+    "sui",
 )
 
-SCANNER_MARKET_COUNT = 100
+CORE_ASSET_SYMBOLS = (
+    "BTC",
+    "ETH",
+    "SOL",
+    "XRP",
+    "BNB",
+    "LINK",
+    "HYPE",
+    "ONDO",
+    "AAVE",
+    "UNI",
+    "AVAX",
+    "SUI",
+)
+
+CORE_MAX_MARKET_RANK = 30
+EMERGING_MIN_MARKET_RANK = 31
+EMERGING_MAX_MARKET_RANK = 150
+EMERGING_MIN_MARKET_CAP = 75_000_000
+EMERGING_MAX_MARKET_CAP = 5_000_000_000
+EMERGING_MIN_VOLUME = 3_000_000
+
+SCANNER_MARKET_COUNT = 150
 SCANNER_MIN_MARKET_CAP = 50_000_000
 SCANNER_MIN_VOLUME = 2_000_000
 SCANNER_MAX_ABS_24H_CHANGE = 80.0

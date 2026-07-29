@@ -21,7 +21,8 @@ navigation = st.navigation(
             st.Page("pages/history.py", title="History", icon="📈"),
         ],
         "Research": [
-            st.Page("pages/opportunity_scanner.py", title="Opportunity Scanner", icon="🚀"),
+            st.Page("pages/opportunity_radar.py", title="Opportunity Radar", icon="📡"),
+            st.Page("pages/opportunity_scanner.py", title="Full Scanner", icon="🔎"),
             st.Page("pages/conviction.py", title="Conviction Engine", icon="⭐"),
             st.Page("pages/defi_intelligence.py", title="DeFi Intelligence", icon="🌐"),
         ],

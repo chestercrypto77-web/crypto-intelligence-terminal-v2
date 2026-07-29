@@ -8,7 +8,7 @@ CSS = '''
   --cit-blue: #5B8CFF;
 }
 .block-container {
-  padding-top: 1.5rem;
+  padding-top: 1.35rem;
   padding-bottom: 3rem;
   max-width: 1500px;
 }
@@ -19,7 +19,7 @@ h2, h3 { letter-spacing: -0.02em; }
   border: 1px solid var(--cit-border);
   border-radius: 14px;
   padding: 16px;
-  min-height: 118px;
+  min-height: 112px;
   background: var(--cit-panel);
 }
 .terminal-card-label {
@@ -54,6 +54,29 @@ h2, h3 { letter-spacing: -0.02em; }
   background: rgba(91,140,255,0.055);
   line-height: 1.62;
 }
+.mode-panel {
+  border: 1px solid rgba(91,140,255,0.22);
+  border-radius: 16px;
+  padding: 15px 18px;
+  background: rgba(91,140,255,0.035);
+  margin-bottom: 1rem;
+}
+.project-card {
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+  padding: 17px;
+  background: rgba(255,255,255,0.027);
+  margin-bottom: 12px;
+}
+.project-title {
+  font-size: 1.08rem;
+  font-weight: 720;
+}
+.project-reason {
+  opacity: 0.74;
+  line-height: 1.45;
+  margin-top: 8px;
+}
 .section-label {
   font-size: 0.76rem;
   text-transform: uppercase;
@@ -68,6 +91,9 @@ div[data-testid="stDataFrame"] {
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 12px;
   overflow: hidden;
+}
+div[role="radiogroup"] {
+  gap: 0.35rem;
 }
 </style>
 '''
