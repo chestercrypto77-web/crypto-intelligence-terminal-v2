@@ -1,5 +1,5 @@
 APP_NAME = "Crypto Intelligence Terminal V2"
-APP_VERSION = "0.7.0"
+APP_VERSION = "0.8.0"
 
 COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3"
 FEAR_GREED_URL = "https://api.alternative.me/fng/"
@@ -63,3 +63,7 @@ WATCHLIST_DEFAULT_IDS = (
     "coti",
     "zilliqa",
 )
+
+INTELLIGENCE_EVIDENCE_LIMIT = 6
+INTELLIGENCE_RESEARCH_QUEUE_SIZE = 5
+INTELLIGENCE_TIMELINE_DAYS = 30

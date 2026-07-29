@@ -23,9 +23,11 @@ required = {
     "Services folder": Path("services").is_dir(),
     "Configuration": Path("config.py").is_file(),
     "Mission Control page": Path("pages/mission_control.py").is_file(),
+    "Intelligence Engine page": Path("pages/intelligence_engine.py").is_file(),
     "Opportunity Radar page": Path("pages/opportunity_radar.py").is_file(),
-    "Market layer service": Path("services/market_layers.py").is_file(),
-    "Momentum service": Path("services/momentum.py").is_file(),
+    "Intelligence component": Path("components/intelligence.py").is_file(),
+    "Intelligence service": Path("services/intelligence_engine.py").is_file(),
+    "Timeline service": Path("services/timeline.py").is_file(),
     "History page": Path("pages/history.py").is_file(),
     "Watchlist page": Path("pages/watchlist.py").is_file(),
     "History service": Path("services/history_store.py").is_file(),
@@ -56,11 +58,7 @@ for column, (label, url, params) in zip(columns, tests):
     with column:
         if st.button(f"Test {label}"):
             try:
-                response = requests.get(
-                    url,
-                    params=params,
-                    timeout=REQUEST_TIMEOUT_SECONDS,
-                )
+                response = requests.get(url, params=params, timeout=REQUEST_TIMEOUT_SECONDS)
                 response.raise_for_status()
                 st.success(f"✅ {label} connection successful")
             except requests.RequestException as exc:

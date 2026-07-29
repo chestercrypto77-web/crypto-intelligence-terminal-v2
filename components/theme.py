@@ -47,7 +47,7 @@ h2, h3 { letter-spacing: -0.02em; }
   margin-bottom: 1rem;
   font-size: 0.84rem;
 }
-.briefing-panel {
+.briefing-panel, .evidence-panel {
   border: 1px solid rgba(91,140,255,0.30);
   border-radius: 14px;
   padding: 18px;
@@ -68,15 +68,8 @@ h2, h3 { letter-spacing: -0.02em; }
   background: rgba(255,255,255,0.027);
   margin-bottom: 12px;
 }
-.project-title {
-  font-size: 1.08rem;
-  font-weight: 720;
-}
-.project-reason {
-  opacity: 0.74;
-  line-height: 1.45;
-  margin-top: 8px;
-}
+.project-title { font-size: 1.08rem; font-weight: 720; }
+.project-reason { opacity: 0.74; line-height: 1.45; margin-top: 8px; }
 .section-label {
   font-size: 0.76rem;
   text-transform: uppercase;
@@ -84,6 +77,32 @@ h2, h3 { letter-spacing: -0.02em; }
   opacity: 0.58;
   margin-bottom: 0.35rem;
 }
+.health-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 1.2fr) 3fr 56px;
+  gap: 12px;
+  align-items: center;
+  margin: 9px 0;
+}
+.health-track {
+  height: 9px;
+  border-radius: 99px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+.health-fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #5B8CFF, #37c99b);
+}
+.evidence-item {
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.evidence-item:last-child { border-bottom: 0; }
+.flow-up { color: #37c99b; font-weight: 750; }
+.flow-flat { color: #e4b84c; font-weight: 750; }
+.flow-down { color: #ee7282; font-weight: 750; }
 .signal-positive { color: #37c99b; font-weight: 700; }
 .signal-caution { color: #e4b84c; font-weight: 700; }
 .signal-negative { color: #ee7282; font-weight: 700; }
@@ -92,9 +111,7 @@ div[data-testid="stDataFrame"] {
   border-radius: 12px;
   overflow: hidden;
 }
-div[role="radiogroup"] {
-  gap: 0.35rem;
-}
+div[role="radiogroup"] { gap: 0.35rem; }
 </style>
 '''
 

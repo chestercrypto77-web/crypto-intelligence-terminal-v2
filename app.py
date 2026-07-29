@@ -16,7 +16,8 @@ navigation = st.navigation(
     {
         "Intelligence": [
             st.Page("pages/mission_control.py", title="Mission Control", icon="🎯", default=True),
-            st.Page("pages/market_briefing.py", title="Market Briefing", icon="🧠"),
+            st.Page("pages/intelligence_engine.py", title="Intelligence Engine", icon="🧠"),
+            st.Page("pages/market_briefing.py", title="Market Briefing", icon="📰"),
             st.Page("pages/whats_hot.py", title="What's Hot", icon="🔥"),
             st.Page("pages/history.py", title="History", icon="📈"),
         ],

@@ -1,40 +1,47 @@
-# Crypto Intelligence Terminal V2 — Release 0.7.0
+# Crypto Intelligence Terminal V2 — Release 0.8.0
 
-Release 0.7 separates the terminal into two distinct investment views.
+Release 0.8 introduces the terminal's Intelligence Engine.
 
-## Market Intelligence
+## New capabilities
 
-The default mainstream experience focuses on:
+### Evidence Engine
 
-- established projects
-- familiar market narratives
-- market regime
-- portfolio health
-- sentiment
-- concise one-minute briefing
+Every project conclusion is supported by visible evidence, including available conviction, price momentum, liquidity and matched TVL changes. The interface also reports an evidence-confidence percentage based on data coverage and agreement.
 
-## Opportunity Radar
+### Investment Health Score
 
-A separate research area focuses on smaller and emerging projects using:
+Projects receive a transparent breakdown across:
 
-- market-rank boundaries
-- market-cap and liquidity requirements
-- opportunity score
-- risk-adjusted conviction
-- 24-hour and 7-day momentum
-- DeFi TVL momentum when a reliable protocol match exists
-- plain-English reasons explaining why each project is present
+- fundamentals
+- momentum
+- liquidity
+- adoption / TVL
+- risk quality
 
-## Important data rule
+The overall score is a weighted synthesis of those components.
 
-The terminal does not fabricate unavailable metrics. Wallet and developer trends are not shown until a reliable data source is integrated. TVL appears only when a project can be matched to DeFiLlama.
+### Rule-based Intelligence Summary
 
-## Upload
+Project summaries are generated directly from observed data. They do not use unsupported claims or fabricate missing metrics.
 
-Extract the ZIP and upload every item inside the extracted folder to the repository root, replacing existing files.
+### Capital Rotation
 
-Do not upload the parent release folder itself.
+Category movement and turnover are combined into a relative rotation signal. This is clearly labelled as an activity indicator—not verified on-chain capital flow.
 
-## Entry point
+### Research Queue
 
-`app.py`
+Opportunity Radar presents a focused list of emerging research candidates rather than an endless coin list.
+
+### Opportunity Timeline
+
+Saved historical snapshots are used to chart conviction and opportunity scores. The timeline becomes more useful as snapshots accumulate.
+
+## Data integrity rule
+
+The terminal does not estimate wallet activity, developer activity, fees, stablecoin flows or TVL. TVL appears only when a reliable DeFiLlama match is available.
+
+## Installation
+
+Extract the ZIP and upload every item inside the extracted release folder to the repository root, replacing existing files.
+
+Entry point: `app.py`

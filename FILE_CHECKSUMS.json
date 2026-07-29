@@ -4,16 +4,16 @@
     "bytes": 71
   },
   "CHANGELOG.md": {
-    "sha256": "2e26d54bb32f987cb85b8cdcab7735da45cc0399aa4bc2299945caa1a1b53ca7",
-    "bytes": 701
+    "sha256": "b168b9fdeea1bc696c65565e869dba3ef3b8e3c94848ebc9b37c8dcb7408be88",
+    "bytes": 841
   },
   "README.md": {
-    "sha256": "34f4320f7fcec0f95a83a4f7400c6696617e88e4dfb0c7997a41debe7922c5d2",
-    "bytes": 1112
+    "sha256": "3fae4ff6efcd9e910a83dde26a401ea64a9ac0d0a23124c2b826886b81c5783d",
+    "bytes": 1608
   },
   "app.py": {
-    "sha256": "4f695b52a308bea8ecbc074feacfffae0dc569177d14438e1438d34b4527c6e3",
-    "bytes": 1363
+    "sha256": "d52f0361109976c31ccb817d22082c86324e0f4b389ee0c7b7409997ed52f959",
+    "bytes": 1458
   },
   "components/__init__.py": {
     "sha256": "9e04b070ae9cba621a15b99c46fc338c8984bfb20a910527151b5bb298b9548c",
@@ -23,17 +23,21 @@
     "sha256": "4e49aacd4239b05ea0815536ba341365be5278eee395f18a14072012ccbe847d",
     "bytes": 998
   },
+  "components/intelligence.py": {
+    "sha256": "4a993c788bd8263d417211d77a873a3ba3d9a10192dc6d4b56d2f9a235b1bfe8",
+    "bytes": 1777
+  },
   "components/layout.py": {
     "sha256": "40e8c014d1700cf41dd0b9fcf696dedce8071aa0c74947876ad42e85c82489b3",
     "bytes": 139
   },
   "components/theme.py": {
-    "sha256": "9d8efb8ae6c9dc68b8ed5b33005e58ff1c8b1a56667ed4cc31a910e49b52dabd",
-    "bytes": 2228
+    "sha256": "262572bb7cbaf24653a811ceda593fd6b6914f9438a859fe200cac8e7f15cb12",
+    "bytes": 2882
   },
   "config.py": {
-    "sha256": "41053cffc5869a1e29c8fa87b1058ada47500f5c7911fef3fb7a36214b23f9e4",
-    "bytes": 1261
+    "sha256": "8969ca2581156273cbf2888d0966caa4f909aea37f2607059f4b8eb171e10a55",
+    "bytes": 1363
   },
   "pages/conviction.py": {
     "sha256": "031a2c06d6649948e3115907c5987f7da370d297820b41ae828c7562c8b03e97",
@@ -48,12 +52,16 @@
     "bytes": 2988
   },
   "pages/developer_status.py": {
-    "sha256": "71663a063d64fb2cd8b61f08e31787ce9c86b08c84bc4ee80e64e6f465e912ee",
-    "bytes": 2347
+    "sha256": "f61391ccfa64e33889052e53c26ec315a3aacb71d155854bbef4bc48275c8259",
+    "bytes": 2430
   },
   "pages/history.py": {
     "sha256": "37828dce62f1cbc4119219bbe1874a9bec572e16c47e4899eed2dae95eeffeb8",
     "bytes": 4904
+  },
+  "pages/intelligence_engine.py": {
+    "sha256": "980f6c2721a60dc851c01a691f0bb9291fd70cff2844b2308c9b559c003d378a",
+    "bytes": 6478
   },
   "pages/market_briefing.py": {
     "sha256": "3d7b182b6e21ed1eb4b07009c7333a052daccf4a278aa3af10f1ae72de92591c",
@@ -64,8 +72,8 @@
     "bytes": 7049
   },
   "pages/opportunity_radar.py": {
-    "sha256": "b7711057824b2c5acd5b9f476de5e17c7f2d3fbd069d8b7d98fc9d8fbe70dcba",
-    "bytes": 5225
+    "sha256": "d7e7f813425b57909100903cf009ee60603c676c1906fad65fedf5fbe80afd24",
+    "bytes": 5739
   },
   "pages/opportunity_scanner.py": {
     "sha256": "4adc635c9f2bd3aeb7fa16ea0565dd12eb49fad247f362ff3d8dc2df29d592d4",
@@ -127,6 +135,10 @@
     "sha256": "601ee204b1b28b90e3c40e9d79fc92234ce4408feb3881c0dbfa1a331810bfb3",
     "bytes": 663
   },
+  "services/intelligence_engine.py": {
+    "sha256": "160542947b2a39a0255ab4145bc77890a2b9dbecf1f0c608c430df0f47f8527d",
+    "bytes": 8007
+  },
   "services/market_data.py": {
     "sha256": "a9429122b7393f5a895784b29507e2ef264c3c2bce244f746b3ae579d6adae65",
     "bytes": 2781
@@ -151,6 +163,10 @@
     "sha256": "324f0d365155bbc43741b6f16cede10cd2776d6870814757cb9709fbfa4fffd8",
     "bytes": 1642
   },
+  "services/timeline.py": {
+    "sha256": "6df78af04ca9af1d57e80b015a1c0f13a49500139bc0d7a6eb5d950f002aa760",
+    "bytes": 1006
+  },
   "services/trends.py": {
     "sha256": "1d7b4ee640651c78a1e3eb75f7ec5fc8a325807dc556bad4cf6aadf6e000238e",
     "bytes": 1131
@@ -162,6 +178,10 @@
   "tests/test_intelligence.py": {
     "sha256": "d9350343ca9ffdff6f2c72bfc9604acd7084aa9c05563c39a99efc4b66e26f1f",
     "bytes": 1729
+  },
+  "tests/test_intelligence_engine_v08.py": {
+    "sha256": "17206a8eb01d490fcb498aa6e4328d7e0d7c903ac7f1b2bc3381e835f2e10c9f",
+    "bytes": 1244
   },
   "tests/test_market_layers.py": {
     "sha256": "2c649132d00efc5a850d946c8616cf43215273ea00fa3a79db67b998d0a1be42",
