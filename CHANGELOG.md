@@ -1,25 +1,9 @@
-from pathlib import Path
+APP_NAME = "Crypto Intelligence Terminal V2"
+APP_VERSION = "0.2.0"
 
-import streamlit as st
+COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3"
+MARKET_CACHE_SECONDS = 300
+REQUEST_TIMEOUT_SECONDS = 15
 
-from config import APP_NAME
-from components.layout import load_css
-
-st.set_page_config(
-    page_title=APP_NAME,
-    page_icon="🚀",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
-
-load_css(Path(".streamlit/style.css"))
-
-pages = {
-    "Terminal": [
-        st.Page("pages/dashboard.py", title="Dashboard", icon="🏠", default=True),
-        st.Page("pages/developer_status.py", title="Developer Status", icon="🛠️"),
-    ]
-}
-
-navigation = st.navigation(pages)
-navigation.run()
+TRACKED_COINS = ("bitcoin", "ethereum")
+DISPLAY_CURRENCY = "usd"
