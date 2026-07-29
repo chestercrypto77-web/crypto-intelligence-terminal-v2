@@ -3,84 +3,100 @@
     "sha256": "56dc6a1bcd9cf406573083d684b415b608fc2f656b626957a4501adf37fc888a",
     "bytes": 71
   },
-  ".streamlit/config.toml": {
-    "sha256": "66971492d005b41b167c11972f4a7f31883aa0b36640a81256a9140e27ab9d37",
-    "bytes": 194
-  },
-  ".streamlit/style.css": {
-    "sha256": "cf91cadac8f151e328bb281b6dc95eaaab301b63741bc9ac34da87f71b4fb076",
-    "bytes": 551
-  },
   "CHANGELOG.md": {
-    "sha256": "55f6bb8fc1849b9f988e066a550b645714cb52779a9b9622db72fe70728a3110",
-    "bytes": 644
-  },
-  "README.md": {
-    "sha256": "c1b773361d681c829aaff4dbf1b683547cec135265962ab8c9ed39132306e2f7",
-    "bytes": 300
-  },
-  "RELEASE_0.3.1.txt": {
-    "sha256": "c1e9d0b73c8e7d417e87b3cd5ff07a5619a2e96402dabcbff9dd411a707df60c",
-    "bytes": 258
-  },
-  "app.py": {
-    "sha256": "a888c7ac048303793f01a99650626e3d6b26069da136aa84ff4d9502a694a018",
-    "bytes": 632
-  },
-  "components/__init__.py": {
-    "sha256": "51d68e8c240de688e22fe63347273650b7e555447cfcd89889b5a4c103583be7",
-    "bytes": 37
-  },
-  "components/cards.py": {
-    "sha256": "ab78a3282a407e189d5adac21f74cbaa094e1f70d0d28e60c6bb251f21186957",
-    "bytes": 849
-  },
-  "components/layout.py": {
-    "sha256": "72d556cb4804c6406c76f6820c9c3bb4be2e0be86f5517609cc29917cbd8a64e",
-    "bytes": 356
-  },
-  "config.py": {
-    "sha256": "1addfb55b210d858babf9703dae1931dcb45409f0fd951c725fdedfbfa1274e0",
+    "sha256": "4eb424d17db0e65ecf3c09457cdb8aefa87eb77a82ac5e828415f2a791cb0c10",
     "bytes": 392
   },
+  "README.md": {
+    "sha256": "81a0b2cec6fdb958779ed41d40c4b9e8ff30fe0aa02919a35e1f866dbef30cbd",
+    "bytes": 565
+  },
+  "app.py": {
+    "sha256": "08505ea9c09708063f78fb8d98b51de95d5332c70e1653ec99ee518f3ec96096",
+    "bytes": 754
+  },
+  "components/__init__.py": {
+    "sha256": "9e04b070ae9cba621a15b99c46fc338c8984bfb20a910527151b5bb298b9548c",
+    "bytes": 42
+  },
+  "components/cards.py": {
+    "sha256": "51e22cf9959cc1b78516f0e719601c317c6961d5e6fdd9f061515349ad52590c",
+    "bytes": 848
+  },
+  "components/layout.py": {
+    "sha256": "40e8c014d1700cf41dd0b9fcf696dedce8071aa0c74947876ad42e85c82489b3",
+    "bytes": 139
+  },
+  "components/theme.py": {
+    "sha256": "8abbc449a1ec0111a4f9cbfffe37603c3805cb478f42306ed29d5e24f7c62032",
+    "bytes": 971
+  },
+  "config.py": {
+    "sha256": "1cb2e6f53a990090c1c2e37e8c516e0ca6bbb7f8911f874534b91bceda909f92",
+    "bytes": 544
+  },
   "pages/dashboard.py": {
-    "sha256": "8e72611f579159271b7d3c5f70811f61835166e119886b95c07f995e46fd48c9",
-    "bytes": 2705
+    "sha256": "25a83ddefa2884988326d9ebf92b7684d264c35b323ecee0f70acdcaa8604f86",
+    "bytes": 2477
   },
   "pages/developer_status.py": {
-    "sha256": "cefa2b5b61303809a183617051131256a5fe7d0cd94ddae3321d7aa7e1a1b713",
-    "bytes": 1796
+    "sha256": "f2378c9aae746f37c4484bea7ce098f1b934523a95465b51657a05a2127a8132",
+    "bytes": 1774
+  },
+  "pages/opportunity_scanner.py": {
+    "sha256": "4adc635c9f2bd3aeb7fa16ea0565dd12eb49fad247f362ff3d8dc2df29d592d4",
+    "bytes": 2647
   },
   "pages/portfolio.py": {
-    "sha256": "a4e28254ffc0afa554e90f6b501a536224f0c3532fc396d1f65389fc1f237267",
-    "bytes": 2333
+    "sha256": "04c771d7397f98cd72a5afe4095744473fe8414fb1b11cb7cf16a994306ae526",
+    "bytes": 2026
+  },
+  "pages/whats_hot.py": {
+    "sha256": "631b71b795471b83cdf5676c6f5b7df684f8fb76fd33c252af3c99f773d00dd9",
+    "bytes": 2174
   },
   "portfolio_config.py": {
-    "sha256": "05eac7a1b77713b5d7cf8c4f95a09d248d06322e9e23651fd28d17f68b5236a8",
-    "bytes": 1260
+    "sha256": "f85f34319ae5b849836aae42d6938bbacfe42aa91f3664e852a08d39c49330ee",
+    "bytes": 882
   },
   "requirements.txt": {
     "sha256": "515a12fab13bed6c365f9a1b4240520b698f9c6ef9113520d519cba168326853",
     "bytes": 37
   },
   "services/__init__.py": {
-    "sha256": "c3220216788be7ca58210136d63711846a6a79f4d0b5468c9d53264c6da0e50a",
-    "bytes": 47
+    "sha256": "1b3886c5b6c724ef3784b6ceea86c876d714a66cac78278d91e259cad617ec3c",
+    "bytes": 49
+  },
+  "services/category_data.py": {
+    "sha256": "edd74d8acb20dbde69c6cc034a4b56a935f86fc4ca192ade83539be49972e667",
+    "bytes": 1682
   },
   "services/fear_greed.py": {
-    "sha256": "9e2efe5f47d31c63ddaae1769d67eded3568512bdf87402289480270296d124b",
-    "bytes": 949
+    "sha256": "f431ead5ddff86a49ffb6d67a441fc96e44eb9b5228b7acb792d73b02d1a4eaa",
+    "bytes": 703
   },
   "services/formatting.py": {
-    "sha256": "59e70894630806698aa015aa79a03cd6de28e5c2b04a54c4f7ad20a60488b131",
-    "bytes": 1087
+    "sha256": "90aa49ece6a0d71cf3b54cccc9161408098d738964d730ae789f851b20224e6c",
+    "bytes": 1216
+  },
+  "services/http_client.py": {
+    "sha256": "601ee204b1b28b90e3c40e9d79fc92234ce4408feb3881c0dbfa1a331810bfb3",
+    "bytes": 663
   },
   "services/market_data.py": {
-    "sha256": "85964c86cfa01c135146952e4560fd58f30d7e99d6b005a9a98ea6a5fed33ed3",
-    "bytes": 2562
+    "sha256": "a9429122b7393f5a895784b29507e2ef264c3c2bce244f746b3ae579d6adae65",
+    "bytes": 2781
   },
   "services/portfolio_data.py": {
-    "sha256": "4b1f3279688a4706fff199ffaadbddc4282915b692ae1ae2895314df7316b217",
-    "bytes": 1662
+    "sha256": "8d3fef610e196997f0e3f2357f8e6428936a8806bff2b1f9e48965cfd7cd9add",
+    "bytes": 1537
+  },
+  "services/scanner.py": {
+    "sha256": "fcde21155e6aeb8f220354218e234f004b59406e07812430b4750a0402c48a15",
+    "bytes": 3480
+  },
+  "tests/test_intelligence.py": {
+    "sha256": "76a18f6874390f98ff613af84ec3034d1eea16e1ca1dc5057859ebb478ec7d98",
+    "bytes": 1267
   }
 }

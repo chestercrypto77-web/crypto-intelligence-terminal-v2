@@ -1,8 +1,6 @@
-from pathlib import Path
-
 import streamlit as st
 
-from components.layout import load_css
+from components.theme import apply_theme
 from config import APP_NAME
 
 st.set_page_config(
@@ -12,12 +10,14 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-load_css(Path(".streamlit/style.css"))
+apply_theme()
 
 navigation = st.navigation(
     {
         "Terminal": [
             st.Page("pages/dashboard.py", title="Dashboard", icon="🏠", default=True),
+            st.Page("pages/whats_hot.py", title="What's Hot", icon="🔥"),
+            st.Page("pages/opportunity_scanner.py", title="Opportunity Scanner", icon="🚀"),
             st.Page("pages/portfolio.py", title="Portfolio", icon="💼"),
             st.Page("pages/developer_status.py", title="Developer Status", icon="🛠️"),
         ]

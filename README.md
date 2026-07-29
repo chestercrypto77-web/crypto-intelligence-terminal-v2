@@ -1,12 +1,18 @@
-# Crypto Intelligence Terminal V2
+# Crypto Intelligence Terminal V2 — Release 0.4.0
 
-## Release 0.3.1
+This full repository snapshot adds:
 
-- Live global market dashboard
-- Crypto Fear & Greed indicator
-- Portfolio Intelligence page
-- Weighted portfolio score, risk and momentum
-- Live prices for ETH, LINK, ONDO, HYPE, COTI and ZIL
-- Developer connection checks
+- What's Hot Now narrative/category rankings
+- Opportunity Scanner for the top 100 crypto markets
+- Momentum, liquidity, market-size and risk scoring
+- Scanner filters for minimum score, risk and result count
+- Embedded Python theme, removing the hidden `.streamlit` upload problem
+- Updated Developer Status diagnostics
 
-Deploy using `app.py`.
+## Upload
+
+Extract the ZIP and upload every item inside the extracted folder to the repository root, replacing existing files.
+
+## Entry point
+
+`app.py`

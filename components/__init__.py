@@ -1,1 +1,1 @@
-"""Reusable interface components."""
+"""Reusable user-interface components."""

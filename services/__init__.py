@@ -1,1 +1,1 @@
-"""External data and intelligence services."""
+"""Data, intelligence and portfolio services."""

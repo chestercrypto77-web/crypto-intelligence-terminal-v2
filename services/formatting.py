@@ -4,10 +4,8 @@ from datetime import datetime
 def compact_currency(value: float | int | None, symbol: str = "$") -> str:
     if value is None:
         return "Unavailable"
-
     number = float(value)
     magnitude = abs(number)
-
     if magnitude >= 1_000_000_000_000:
         return f"{symbol}{number / 1_000_000_000_000:.2f}T"
     if magnitude >= 1_000_000_000:
@@ -16,7 +14,9 @@ def compact_currency(value: float | int | None, symbol: str = "$") -> str:
         return f"{symbol}{number / 1_000_000:.2f}M"
     if magnitude >= 1_000:
         return f"{symbol}{number / 1_000:.2f}K"
-    return f"{symbol}{number:,.4f}" if magnitude < 1 else f"{symbol}{number:,.2f}"
+    if magnitude < 1:
+        return f"{symbol}{number:,.4f}"
+    return f"{symbol}{number:,.2f}"
 
 
 def percentage(value: float | int | None) -> str:
@@ -25,6 +25,10 @@ def percentage(value: float | int | None) -> str:
 
 def signed_percentage(value: float | int | None) -> str:
     return "Unavailable" if value is None else f"{float(value):+.2f}%"
+
+
+def ratio(value: float | int | None) -> str:
+    return "Unavailable" if value is None else f"{float(value):.3f}"
 
 
 def utc_time(iso_value: str) -> str:
