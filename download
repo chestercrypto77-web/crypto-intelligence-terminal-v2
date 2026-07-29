@@ -1,0 +1,87 @@
+from datetime import datetime, timezone
+from typing import Any
+
+import requests
+import streamlit as st
+
+from config import (
+    COINGECKO_BASE_URL,
+    DISPLAY_CURRENCY,
+    MARKET_CACHE_SECONDS,
+    REQUEST_TIMEOUT_SECONDS,
+    TRACKED_COINS,
+)
+from services.logging_service import get_logger
+
+logger = get_logger(__name__)
+
+
+class MarketDataError(RuntimeError):
+    """Raised when market data cannot be retrieved or validated."""
+
+
+def _get_json(endpoint: str, params: dict[str, Any] | None = None) -> Any:
+    url = f"{COINGECKO_BASE_URL}{endpoint}"
+    try:
+        response = requests.get(
+            url,
+            params=params,
+            timeout=REQUEST_TIMEOUT_SECONDS,
+            headers={"accept": "application/json"},
+        )
+        response.raise_for_status()
+        return response.json()
+    except (requests.RequestException, ValueError) as exc:
+        logger.exception("CoinGecko request failed: %s", url)
+        raise MarketDataError("Live market data is temporarily unavailable.") from exc
+
+
+@st.cache_data(ttl=MARKET_CACHE_SECONDS, show_spinner=False)
+def get_market_snapshot() -> dict[str, Any]:
+    global_payload = _get_json("/global")
+    coin_payload = _get_json(
+        "/coins/markets",
+        params={
+            "vs_currency": DISPLAY_CURRENCY,
+            "ids": ",".join(TRACKED_COINS),
+            "order": "market_cap_desc",
+            "sparkline": "false",
+            "price_change_percentage": "24h",
+        },
+    )
+
+    global_data = global_payload.get("data", {})
+    total_market_cap = global_data.get("total_market_cap", {}).get(DISPLAY_CURRENCY)
+    total_volume = global_data.get("total_volume", {}).get(DISPLAY_CURRENCY)
+    market_cap_change = global_data.get("market_cap_change_percentage_24h_usd")
+    dominance = global_data.get("market_cap_percentage", {})
+
+    if total_market_cap is None or total_volume is None:
+        raise MarketDataError("CoinGecko returned incomplete global market data.")
+
+    coins = {
+        item["id"]: {
+            "name": item.get("name", item["id"].title()),
+            "symbol": item.get("symbol", "").upper(),
+            "price": item.get("current_price"),
+            "change_24h": item.get("price_change_percentage_24h"),
+            "market_cap": item.get("market_cap"),
+        }
+        for item in coin_payload
+        if item.get("id")
+    }
+
+    return {
+        "total_market_cap": total_market_cap,
+        "total_volume": total_volume,
+        "market_cap_change_24h": market_cap_change,
+        "btc_dominance": dominance.get("btc"),
+        "eth_dominance": dominance.get("eth"),
+        "coins": coins,
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "source": "CoinGecko",
+    }
+
+
+def clear_market_cache() -> None:
+    get_market_snapshot.clear()

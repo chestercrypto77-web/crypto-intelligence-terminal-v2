@@ -1,1 +1,27 @@
-streamlit>=1.36,<2
+# Crypto Intelligence Terminal V2
+
+Clean rebuild of the Crypto Intelligence Terminal.
+
+## Release 0.2.0
+
+- Live CoinGecko global market data
+- Bitcoin and Ethereum market cards
+- Cached API service with manual refresh
+- Shared configuration and formatting utilities
+- Structured logging and error handling
+- Improved status and developer checks
+
+## Deploy
+
+Main file path:
+
+```text
+app.py
+```
+
+## Run locally
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
