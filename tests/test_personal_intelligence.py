@@ -60,3 +60,42 @@ def test_attention_score_prefers_numeric_conviction_score():
         "conviction_score": 90,
     }
     assert attention_score(row, 2) > 20
+
+def test_attention_score_handles_none_and_bad_strings():
+    from services.personal_intelligence import attention_score
+
+    row = {
+        "change_1h": None,
+        "change_24h": "not-a-number",
+        "change_7d": "",
+        "volume_ratio": None,
+        "conviction": "Core",
+    }
+    score = attention_score(row, 1)
+    assert isinstance(score, float)
+    assert score > 0
+
+
+def test_build_personal_market_handles_partial_api_rows():
+    from services.personal_intelligence import build_personal_market
+
+    scanner = [{
+        "symbol": "BTC",
+        "name": "Bitcoin",
+        "change_1h": None,
+        "change_24h": None,
+        "change_7d": "bad",
+        "volume_ratio": None,
+        "price": None,
+    }]
+    profile = ({
+        "symbol": "BTC",
+        "name": "Bitcoin",
+        "priority": 1,
+        "conviction": "Core",
+        "conviction_score": 95,
+    },)
+    rows = build_personal_market(scanner, [], profile)
+    assert rows[0]["available"] is True
+    assert rows[0]["attention"] > 0
+    assert rows[0]["momentum_state"] == "Stable"

@@ -1,34 +1,46 @@
-# Crypto Intelligence Terminal V2 — Release 2.1.2
+# Crypto Intelligence Terminal V2 — Release 2.1.3
 
-This complete release fixes the Morning Brief crash and dark-theme readability.
+Release 2.1.3 fixes the remaining Morning Brief crash and improves visual
+separation across the complete terminal.
 
-## Fixes
+## Crash fix
 
-### Morning Brief crash
+The Personal Intelligence service has been fully rewritten around defensive
+numeric conversion. It now safely handles:
 
-The portfolio profile uses readable conviction labels such as `Core`, `High`
-and `Medium`. The attention engine previously attempted to convert those words
-directly to a number, causing:
+- `None` values from live APIs
+- missing price and percentage fields
+- malformed numeric strings
+- readable conviction labels such as Core, High and Medium
+- incomplete scanner and conviction records
 
-`ValueError: could not convert string to float`
+A single missing API field can no longer crash the Morning Brief.
 
-The engine now safely maps conviction labels to numeric scores and also supports
-an explicit `conviction_score` field.
+## Navigation readability
 
-### Dark navigation readability
+The sidebar now uses:
 
-The permanent dark background was working, but Streamlit retained low-opacity
-navigation text. Release 2.1.2 explicitly restores readable colours and opacity
-for:
+- brighter page names
+- stronger font weight
+- a clearly highlighted selected page
+- blue navigation section headings
+- higher contrast against the dark sidebar
 
-- sidebar page names
-- sidebar section headings
-- selected navigation item
-- metrics
-- captions
-- expanders and alerts
+## Page colour hierarchy
+
+Across all pages:
+
+- page titles remain off-white
+- major section headings are blue
+- smaller headings are amber
+- collapsed technical sections are green
+- labels and supporting copy remain softer grey
+
+This provides clear separation without turning the terminal into a brightly
+coloured dashboard.
 
 ## Deployment
 
-Extract the ZIP and upload everything inside the extracted folder into the root
-of the GitHub repository, replacing the existing files.
+This is a complete release. Extract it and upload everything inside the
+extracted folder into the root of the GitHub repository, replacing existing
+files.

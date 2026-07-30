@@ -1,5 +1,5 @@
 APP_NAME = "Crypto Intelligence Terminal V2"
-APP_VERSION = "2.1.2"
+APP_VERSION = "2.1.3"
 
 COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3"
 FEAR_GREED_URL = "https://api.alternative.me/fng/"

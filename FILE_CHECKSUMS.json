@@ -8,12 +8,12 @@
     "bytes": 224
   },
   "CHANGELOG.md": {
-    "sha256": "64e3c42b03530a0689c8cc6b761dc005abdc1bf1a3384abfd12b48c2226e572e",
-    "bytes": 1525
+    "sha256": "71d02256a6d1c5de159a93f9c5175b47162c3cd9becb1120c213da5e7918eb4d",
+    "bytes": 1934
   },
   "README.md": {
-    "sha256": "adbbb6d3f21ad415627681b4c71d40963d0fecb66e69f48042c1ebfd57f23d58",
-    "bytes": 994
+    "sha256": "6045b78161f9acfd5d30a927df7438d28fd7a9e287d3b9165b8624cf1fc7f21d",
+    "bytes": 1279
   },
   "app.py": {
     "sha256": "4d6f2359baf1399dab5f18069f3b67a29f6ae72647dc0080020898d70c2c9966",
@@ -36,11 +36,11 @@
     "bytes": 139
   },
   "components/theme.py": {
-    "sha256": "3ae0ff9dae23ed4e82c89f8a3b8300efa2828da624da89629558aafaff8031db",
-    "bytes": 8575
+    "sha256": "1bbd9ebf37002b730bb06597983f7d7482bcc8dc77e7d59465904e6ef66fdcca",
+    "bytes": 11475
   },
   "config.py": {
-    "sha256": "6720d845d7db3a235f6fd4de2df2f05670f1c31765b72074adfe23daae1ae70a",
+    "sha256": "812e1ce041f1011b119d842b78213cbe92255739d01e4aee3e4772c99ece3720",
     "bytes": 1831
   },
   "pages/conviction.py": {
@@ -84,7 +84,7 @@
     "bytes": 7049
   },
   "pages/morning_brief.py": {
-    "sha256": "d667c43c30d4548cf712079dd20b106228c951ef6cae324835071d90c1ea403c",
+    "sha256": "f283c15997ecde5e9377f7021aae21e5559229d4e631891e1f56c3979cec4ce4",
     "bytes": 8560
   },
   "pages/my_market.py": {
@@ -192,8 +192,8 @@
     "bytes": 3850
   },
   "services/personal_intelligence.py": {
-    "sha256": "27239e74f8fd354983e3ec62a308f18cf2b8bee7ad44c8afc8eeea84133e74e1",
-    "bytes": 5900
+    "sha256": "46ee9432211cea92e3dadc7ce35833dc0852293c290ad3b243bf0b37fab47650",
+    "bytes": 7637
   },
   "services/portfolio_data.py": {
     "sha256": "8d3fef610e196997f0e3f2357f8e6428936a8806bff2b1f9e48965cfd7cd9add",
@@ -248,8 +248,8 @@
     "bytes": 764
   },
   "tests/test_personal_intelligence.py": {
-    "sha256": "1f3a0df9f76931300dda6af29e4fd4d1ca181e7d87f50e8501e74313848909f0",
-    "bytes": 1832
+    "sha256": "aeb47d8989f42b4a4cb069ce17850e049bdb94d2ec1d938a393e41c092d435a8",
+    "bytes": 2900
   },
   "tests/test_portfolio_snapshot.py": {
     "sha256": "cc32825d3a7fc468ef76265ee97df7dcf5d48e0abfa652f3506e492e0f047996",

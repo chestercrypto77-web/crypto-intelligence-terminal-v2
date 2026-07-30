@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.3
+
+- Fully rewrote Personal Intelligence numeric handling.
+- Fixed crashes caused by None, malformed or incomplete live API values.
+- Added regression tests for partial scanner rows.
+- Increased sidebar contrast and navigation font weight.
+- Added a stronger selected-page state.
+- Added consistent colour hierarchy for headings and collapsed sections.
+- Retained all Release 2.1.2 and earlier fixes.
+
 ## 2.1.2
 
 - Fixed Morning Brief crash caused by descriptive conviction labels.

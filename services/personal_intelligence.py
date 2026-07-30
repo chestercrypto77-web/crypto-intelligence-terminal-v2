@@ -1,49 +1,76 @@
 from __future__ import annotations
 
+from math import isfinite
 from typing import Any
+
+
+def safe_float(value: Any, default: float = 0.0) -> float:
+    """Convert API/profile values safely, including None, labels and malformed strings."""
+    if value is None or isinstance(value, bool):
+        return default
+    if isinstance(value, (int, float)):
+        number = float(value)
+        return number if isfinite(number) else default
+    try:
+        text = str(value).strip().replace(",", "")
+        if not text:
+            return default
+        number = float(text)
+        return number if isfinite(number) else default
+    except (TypeError, ValueError, OverflowError):
+        return default
 
 
 def clamp(value: float, low: float = 0.0, high: float = 100.0) -> float:
     return max(low, min(high, value))
 
 
-def _numeric_conviction(row: dict[str, Any]) -> float:
-    """Return a numeric conviction score without crashing on labels such as Core/High."""
-    value = row.get("conviction_score")
-    if value is None:
-        value = row.get("score")
-    if value is None:
-        value = row.get("conviction")
+def numeric_conviction(row: dict[str, Any]) -> float:
+    """Return conviction as a 0–100 numeric score."""
+    explicit = row.get("conviction_score")
+    if explicit is not None:
+        return clamp(safe_float(explicit))
 
-    if isinstance(value, (int, float)):
-        return float(value)
+    score = row.get("score")
+    if score is not None:
+        return clamp(safe_float(score))
 
+    value = row.get("conviction")
     labels = {
         "core": 95.0,
+        "very high": 90.0,
         "high": 82.0,
         "medium": 65.0,
+        "moderate": 60.0,
         "low": 40.0,
     }
-    return labels.get(str(value or "").strip().lower(), 0.0)
+    label = str(value or "").strip().lower()
+    if label in labels:
+        return labels[label]
+    return clamp(safe_float(value))
 
 
 def attention_score(row: dict[str, Any], priority: int) -> float:
-    change_1h = float(row.get("change_1h") or 0)
-    change_24h = float(row.get("change_24h") or 0)
-    change_7d = float(row.get("change_7d") or 0)
-    volume_ratio = float(row.get("volume_ratio") or 0)
-    conviction = _numeric_conviction(row)
+    change_1h = safe_float(row.get("change_1h"))
+    change_24h = safe_float(row.get("change_24h"))
+    change_7d = safe_float(row.get("change_7d"))
+    volume_ratio = safe_float(row.get("volume_ratio"))
+    conviction = numeric_conviction(row)
+    priority_value = int(safe_float(priority, 3))
 
     momentum = (
         min(abs(change_1h), 8) * 2.2
         + min(abs(change_24h), 35) * 1.25
         + min(abs(change_7d), 70) * 0.35
     )
-    liquidity_signal = min(volume_ratio / 0.25, 1.0) * 18
+    liquidity_signal = min(max(volume_ratio, 0) / 0.25, 1.0) * 18
     conviction_signal = conviction * 0.22
-    personal_weight = {1: 20, 2: 10, 3: 3}.get(int(priority), 0)
+    personal_weight = {1: 20, 2: 10, 3: 3}.get(priority_value, 0)
 
-    return round(clamp(momentum + liquidity_signal + conviction_signal + personal_weight), 1)
+    return round(
+        clamp(momentum + liquidity_signal + conviction_signal + personal_weight),
+        1,
+    )
 
 
 def attention_label(score: float) -> str:
@@ -58,27 +85,31 @@ def attention_label(score: float) -> str:
     return "Quiet"
 
 
-def momentum_state(change_1h: float, change_24h: float, change_7d: float) -> str:
-    if change_24h >= 12 and change_1h > 0:
+def momentum_state(change_1h: Any, change_24h: Any, change_7d: Any) -> str:
+    one_hour = safe_float(change_1h)
+    daily = safe_float(change_24h)
+    weekly = safe_float(change_7d)
+
+    if daily >= 12 and one_hour > 0:
         return "Accelerating"
-    if change_24h >= 5:
+    if daily >= 5:
         return "Strong"
-    if change_24h >= 2:
+    if daily >= 2:
         return "Improving"
-    if change_24h <= -12:
+    if daily <= -12:
         return "Deteriorating"
-    if change_24h <= -5:
+    if daily <= -5:
         return "Weakening"
-    if change_7d >= 8:
+    if weekly >= 8:
         return "Building"
     return "Stable"
 
 
 def reason_text(row: dict[str, Any]) -> str:
-    change_1h = float(row.get("change_1h") or 0)
-    change_24h = float(row.get("change_24h") or 0)
-    change_7d = float(row.get("change_7d") or 0)
-    volume_ratio = float(row.get("volume_ratio") or 0)
+    change_1h = safe_float(row.get("change_1h"))
+    change_24h = safe_float(row.get("change_24h"))
+    change_7d = safe_float(row.get("change_7d"))
+    volume_ratio = safe_float(row.get("volume_ratio"))
     reasons: list[str] = []
 
     if change_24h >= 10:
@@ -103,7 +134,11 @@ def reason_text(row: dict[str, Any]) -> str:
     elif change_7d <= -15:
         reasons.append(f"the seven-day trend remains weak ({change_7d:+.1f}%)")
 
-    return "; ".join(reasons).capitalize() + "." if reasons else "No unusual market signal is currently detected."
+    return (
+        "; ".join(reasons).capitalize() + "."
+        if reasons
+        else "No unusual market signal is currently detected."
+    )
 
 
 def build_personal_market(
@@ -111,49 +146,93 @@ def build_personal_market(
     conviction_rows: list[dict[str, Any]],
     configured_assets: tuple[dict[str, Any], ...],
 ) -> list[dict[str, Any]]:
-    scanner_map = {str(row.get("symbol", "")).upper(): row for row in scanner_rows}
-    conviction_map = {str(row.get("symbol", "")).upper(): row for row in conviction_rows}
+    scanner_map = {
+        str(row.get("symbol", "")).upper(): row
+        for row in scanner_rows
+        if row
+    }
+    conviction_map = {
+        str(row.get("symbol", "")).upper(): row
+        for row in conviction_rows
+        if row
+    }
     results: list[dict[str, Any]] = []
 
     for asset in configured_assets:
-        symbol = str(asset["symbol"]).upper()
+        symbol = str(asset.get("symbol", "")).upper()
         source = conviction_map.get(symbol) or scanner_map.get(symbol)
+
         if not source:
-            results.append({**asset, "available": False, "attention": 0, "attention_label": "Data unavailable"})
+            results.append(
+                {
+                    **asset,
+                    "symbol": symbol,
+                    "available": False,
+                    "attention": 0.0,
+                    "attention_label": "Data unavailable",
+                    "momentum_state": "Data unavailable",
+                    "reason": "Live market data is temporarily unavailable.",
+                }
+            )
             continue
 
-        row = {**source, **asset, "available": True}
-        row["attention"] = attention_score(row, int(asset["priority"]))
+        # Market data comes first; portfolio identity and priority remain authoritative.
+        row = {**source, **asset, "symbol": symbol, "available": True}
+        priority = int(safe_float(asset.get("priority"), 3))
+        row["conviction_score"] = numeric_conviction(row)
+        row["attention"] = attention_score(row, priority)
         row["attention_label"] = attention_label(row["attention"])
         row["momentum_state"] = momentum_state(
-            float(row.get("change_1h") or 0),
-            float(row.get("change_24h") or 0),
-            float(row.get("change_7d") or 0),
+            row.get("change_1h"),
+            row.get("change_24h"),
+            row.get("change_7d"),
         )
         row["reason"] = reason_text(row)
         results.append(row)
 
-    results.sort(key=lambda item: (not item.get("available", False), -float(item.get("attention") or 0), int(item["priority"])))
+    results.sort(
+        key=lambda item: (
+            not item.get("available", False),
+            -safe_float(item.get("attention")),
+            int(safe_float(item.get("priority"), 3)),
+        )
+    )
     return results
 
 
 def market_summary(rows: list[dict[str, Any]]) -> str:
     available = [row for row in rows if row.get("available")]
-    urgent = [row for row in available if float(row.get("attention") or 0) >= 70]
-    gainers = sorted(available, key=lambda row: float(row.get("change_24h") or 0), reverse=True)
-    losers = sorted(available, key=lambda row: float(row.get("change_24h") or 0))
-
     if not available:
         return "Personal market data is temporarily unavailable."
+
+    urgent = [row for row in available if safe_float(row.get("attention")) >= 70]
+    gainers = sorted(
+        available,
+        key=lambda row: safe_float(row.get("change_24h")),
+        reverse=True,
+    )
+    losers = sorted(
+        available,
+        key=lambda row: safe_float(row.get("change_24h")),
+    )
 
     lead = gainers[0]
     text = (
         f"{lead['name']} is showing the strongest 24-hour momentum in your market "
-        f"at {float(lead.get('change_24h') or 0):+.1f}%. "
+        f"at {safe_float(lead.get('change_24h')):+.1f}%. "
     )
     if urgent:
-        text += f"{len(urgent)} project{'s' if len(urgent) != 1 else ''} currently require high attention. "
-    if losers and float(losers[0].get("change_24h") or 0) <= -5:
-        text += f"{losers[0]['name']} is the weakest monitored project at {float(losers[0].get('change_24h') or 0):+.1f}%. "
-    text += "Attention scores prioritise your holdings and interests while still retaining broader Australian-market context."
+        text += (
+            f"{len(urgent)} project{'s' if len(urgent) != 1 else ''} "
+            "currently require high attention. "
+        )
+    if losers and safe_float(losers[0].get("change_24h")) <= -5:
+        text += (
+            f"{losers[0]['name']} is the weakest monitored project at "
+            f"{safe_float(losers[0].get('change_24h')):+.1f}%. "
+        )
+    text += (
+        "Attention scores prioritise your holdings and interests while retaining "
+        "broader Australian-market context."
+    )
     return text

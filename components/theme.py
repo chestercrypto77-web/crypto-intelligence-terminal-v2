@@ -357,6 +357,119 @@ a, a:visited {
   color: #8FAEFF !important;
 }
 
+
+/* Release 2.1.3: high-contrast navigation and page hierarchy. */
+[data-testid="stSidebar"] {
+  background: #0C1422 !important;
+  min-width: 250px !important;
+}
+
+[data-testid="stSidebar"] a,
+[data-testid="stSidebar"] button,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] div {
+  color: #DDE6F3 !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #DDE6F3 !important;
+}
+
+[data-testid="stSidebar"] a {
+  font-size: 0.94rem !important;
+  font-weight: 560 !important;
+}
+
+[data-testid="stSidebar"] a:hover {
+  background: rgba(111,150,255,0.12) !important;
+  border-radius: 9px !important;
+}
+
+[data-testid="stSidebar"] a[aria-current="page"],
+[data-testid="stSidebar"] a[aria-current="page"] * {
+  background: rgba(111,150,255,0.20) !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  font-weight: 720 !important;
+  border-radius: 9px !important;
+}
+
+[data-testid="stSidebar"] [data-testid*="NavSectionHeader"],
+[data-testid="stSidebar"] [class*="section"],
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3 {
+  color: #8FAEFF !important;
+  -webkit-text-fill-color: #8FAEFF !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* Calm but clear colour hierarchy across all pages. */
+[data-testid="stMain"] h1,
+[data-testid="stAppViewContainer"] h1 {
+  color: #F4F7FC !important;
+  -webkit-text-fill-color: #F4F7FC !important;
+}
+
+[data-testid="stMain"] h2,
+[data-testid="stAppViewContainer"] h2 {
+  color: #8FAEFF !important;
+  -webkit-text-fill-color: #8FAEFF !important;
+  border-left: 3px solid #6F96FF;
+  padding-left: 10px;
+  margin-top: 1.7rem;
+}
+
+[data-testid="stMain"] h3,
+[data-testid="stAppViewContainer"] h3 {
+  color: #E7BE63 !important;
+  -webkit-text-fill-color: #E7BE63 !important;
+}
+
+[data-testid="stExpander"] summary p,
+[data-testid="stExpander"] summary span {
+  color: #69D8B3 !important;
+  -webkit-text-fill-color: #69D8B3 !important;
+  font-weight: 680 !important;
+}
+
+[data-testid="stMetricLabel"] p,
+[data-testid="stMetricLabel"] div {
+  color: #A8B5C7 !important;
+  -webkit-text-fill-color: #A8B5C7 !important;
+}
+
+[data-testid="stMetricValue"] {
+  color: #F4F7FC !important;
+  -webkit-text-fill-color: #F4F7FC !important;
+}
+
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li,
+[data-testid="stCaptionContainer"] {
+  color: #C4CEDC !important;
+  -webkit-text-fill-color: #C4CEDC !important;
+  opacity: 1 !important;
+}
+
+.project-title,
+.feed-title,
+.terminal-card-title {
+  color: #8FAEFF !important;
+}
+
+.terminal-card-label,
+.feed-time,
+.morning-asset-label,
+.morning-note {
+  color: #9EABBD !important;
+}
+
+/* Keep error text readable but do not let errors dominate the whole interface. */
+[data-testid="stException"] {
+  border: 1px solid rgba(241,127,141,0.30) !important;
+  background: rgba(241,127,141,0.08) !important;
+}
+
 </style>
 """
 

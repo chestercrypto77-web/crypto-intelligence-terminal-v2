@@ -16,7 +16,7 @@ from services.personal_intelligence import build_personal_market
 from services.portfolio_snapshot import enrich_with_portfolio, portfolio_focus, portfolio_totals
 from services.scanner import build_opportunity_list
 
-APP_VERSION = getattr(config, "APP_VERSION", "2.1.2")
+APP_VERSION = getattr(config, "APP_VERSION", "2.1.3")
 
 page_header("Good morning, Mark", "Your calm five-minute crypto briefing")
 
