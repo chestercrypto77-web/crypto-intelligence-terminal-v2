@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.1
+
+- Fixed `pages/my_market.py` direct import of `PERSONAL_ATTENTION_LIMIT`.
+- Added safe config defaults for My Market.
+- Added retry handling for temporary HTTP failures and rate limiting.
+- Added clearer live-data connection error details.
+- Retained the complete Personal Intelligence Layer and Market Pulse fix.
+
 ## 1.0.0
 
 - Added Personal Intelligence Layer.

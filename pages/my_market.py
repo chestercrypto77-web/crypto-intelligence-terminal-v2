@@ -3,7 +3,10 @@ import streamlit as st
 
 from components.cards import section_label, status_bar
 from components.layout import page_header
-from config import APP_VERSION, PERSONAL_ATTENTION_LIMIT
+import config
+
+APP_VERSION = getattr(config, "APP_VERSION", "1.0.1")
+PERSONAL_ATTENTION_LIMIT = getattr(config, "PERSONAL_ATTENTION_LIMIT", 12)
 from personal_market_config import MY_MARKET
 from portfolio_config import PORTFOLIO
 from services.category_data import CategoryDataError, get_hot_categories
