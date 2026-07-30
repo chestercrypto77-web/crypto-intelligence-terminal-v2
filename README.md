@@ -1,46 +1,41 @@
-# Crypto Intelligence Terminal V2 — Release 2.1.3
+# Crypto Intelligence Terminal V2 — Release 2.2.0
 
-Release 2.1.3 fixes the remaining Morning Brief crash and improves visual
-separation across the complete terminal.
+Release 2.2 introduces the charcoal design system and the first dedicated
+Momentum Intelligence layer.
 
-## Crash fix
+## Momentum Radar
 
-The Personal Intelligence service has been fully rewritten around defensive
-numeric conversion. It now safely handles:
+The new Momentum Radar displays:
 
-- `None` values from live APIs
-- missing price and percentage fields
-- malformed numeric strings
-- readable conviction labels such as Core, High and Medium
-- incomplete scanner and conviction records
+- 15-minute movement
+- 1-hour movement
+- 4-hour movement
+- 12-hour movement
+- 24-hour movement
+- direction arrows
+- acceleration relative to the four-hour pace
+- volume confirmation
+- confidence score
+- Building, Accelerating, Strong, Stable, Weakening and Rolling Over states
 
-A single missing API field can no longer crash the Morning Brief.
+The terminal records one snapshot per project every 15 minutes. CoinGecko's
+current one-hour and 24-hour readings are available immediately. The local
+15-minute, four-hour and 12-hour readings become progressively more accurate as
+the terminal collects history.
 
-## Navigation readability
+## Design refresh
 
-The sidebar now uses:
+- Replaced near-black backgrounds with dark charcoal and slate.
+- Increased separation between background, panels and cards.
+- Retained the blue, green, amber and red information hierarchy.
+- Improved responsive Momentum Radar layout.
 
-- brighter page names
-- stronger font weight
-- a clearly highlighted selected page
-- blue navigation section headings
-- higher contrast against the dark sidebar
+## Important limitation
 
-## Page colour hierarchy
-
-Across all pages:
-
-- page titles remain off-white
-- major section headings are blue
-- smaller headings are amber
-- collapsed technical sections are green
-- labels and supporting copy remain softer grey
-
-This provides clear separation without turning the terminal into a brightly
-coloured dashboard.
+Momentum states are evidence-based observations, not guaranteed predictions or
+automatic investment instructions. Rapid market movement can reverse.
 
 ## Deployment
 
-This is a complete release. Extract it and upload everything inside the
-extracted folder into the root of the GitHub repository, replacing existing
-files.
+Extract the ZIP and upload everything inside the extracted folder into the root
+of the GitHub repository, replacing existing files.

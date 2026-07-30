@@ -4,13 +4,13 @@ CSS = """
 <style>
 :root {
   color-scheme: dark;
-  --bg: #0B0F17;
-  --sidebar: #0E1420;
-  --panel: #111827;
+  --bg: #1B2028;
+  --sidebar: #202631;
+  --panel: #282F3A;
   --panel-soft: rgba(255,255,255,0.028);
   --border: rgba(255,255,255,0.075);
-  --text: #E8EDF5;
-  --muted: #8E9AAC;
+  --text: #F1F3F6;
+  --muted: #AEB8C5;
   --blue: #6F96FF;
   --green: #63D7B0;
   --amber: #E7BE63;
@@ -82,7 +82,7 @@ hr {
   padding: 28px 30px;
   background:
     radial-gradient(circle at top right, rgba(111,150,255,0.12), transparent 38%),
-    linear-gradient(140deg, #111827, #0E1521);
+    linear-gradient(140deg, #282F3A, #232A34);
   box-shadow: 0 18px 50px rgba(0,0,0,0.20);
   margin: 1.15rem 0 1.8rem;
 }
@@ -232,8 +232,8 @@ section.main,
 .main,
 .stApp,
 .stApp > div {
-  background-color: #0B0F17 !important;
-  color: #E8EDF5 !important;
+  background-color: #1B2028 !important;
+  color: #F1F3F6 !important;
 }
 
 [data-testid="stToolbar"],
@@ -247,7 +247,7 @@ section.main,
 [data-testid="stSidebarUserContent"],
 [data-testid="stSidebarNav"],
 [data-testid="stSidebarNavItems"] {
-  background-color: #0E1420 !important;
+  background-color: #202631 !important;
 }
 
 [data-testid="stMetric"],
@@ -259,8 +259,8 @@ section.main,
 [data-testid="stJson"],
 [data-testid="stCodeBlock"],
 [data-testid="stVerticalBlockBorderWrapper"] {
-  background-color: #111827 !important;
-  color: #E8EDF5 !important;
+  background-color: #282F3A !important;
+  color: #F1F3F6 !important;
 }
 
 div[data-baseweb="select"] > div,
@@ -268,8 +268,8 @@ div[data-baseweb="input"] > div,
 div[data-baseweb="textarea"] > div,
 input,
 textarea {
-  background-color: #111827 !important;
-  color: #E8EDF5 !important;
+  background-color: #282F3A !important;
+  color: #F1F3F6 !important;
   border-color: rgba(255,255,255,0.10) !important;
 }
 
@@ -277,12 +277,12 @@ textarea {
 [data-baseweb="menu"],
 [role="listbox"],
 [role="option"] {
-  background-color: #111827 !important;
-  color: #E8EDF5 !important;
+  background-color: #282F3A !important;
+  color: #F1F3F6 !important;
 }
 
 [data-testid="stDataFrame"] iframe {
-  background-color: #111827 !important;
+  background-color: #282F3A !important;
   color-scheme: dark !important;
 }
 
@@ -292,14 +292,14 @@ textarea {
 .stCaption,
 label,
 h1, h2, h3, h4, h5, h6 {
-  color: #E8EDF5 !important;
+  color: #F1F3F6 !important;
 }
 
 .stCaption,
 [data-testid="stCaptionContainer"],
 [data-testid="stMetricLabel"],
 [data-testid="stWidgetLabel"] {
-  color: #8E9AAC !important;
+  color: #AEB8C5 !important;
 }
 
 
@@ -360,7 +360,7 @@ a, a:visited {
 
 /* Release 2.1.3: high-contrast navigation and page hierarchy. */
 [data-testid="stSidebar"] {
-  background: #0C1422 !important;
+  background: #202631 !important;
   min-width: 250px !important;
 }
 
@@ -468,6 +468,75 @@ a, a:visited {
 [data-testid="stException"] {
   border: 1px solid rgba(241,127,141,0.30) !important;
   background: rgba(241,127,141,0.08) !important;
+}
+
+
+/* Release 2.2.0: charcoal visual system and Momentum Radar. */
+[data-testid="stApp"], [data-testid="stAppViewContainer"], [data-testid="stMain"], .stApp {
+  background: #1B2028 !important;
+}
+[data-testid="stSidebar"] {
+  background: #202631 !important;
+  border-right: 1px solid #353D49 !important;
+}
+[data-testid="stMetric"], [data-testid="stExpander"], [data-testid="stAlert"], [data-testid="stDataFrame"] {
+  background: #282F3A !important;
+  border-color: #3A4350 !important;
+}
+.momentum-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 250px;
+  gap: 18px;
+  align-items: center;
+  background: #282F3A;
+  border: 1px solid #3A4350;
+  border-radius: 16px;
+  padding: 15px 17px;
+  margin: 10px 0;
+}
+.momentum-symbol { font-size: 1.1rem; font-weight: 780; color: #F4F6F9; }
+.momentum-name { color: #AEB8C5; font-size: 0.78rem; margin-top: 2px; }
+.momentum-grid { display: grid; grid-template-columns: repeat(5, minmax(78px, 1fr)); gap: 7px; }
+.momentum-cell {
+  background: #232A34;
+  border: 1px solid #353D49;
+  border-radius: 10px;
+  padding: 8px 9px;
+}
+.momentum-time { color: #98A5B5; font-size: 0.68rem; text-transform: uppercase; }
+.momentum-value { color: #EDF1F6; font-weight: 680; margin-top: 3px; white-space: nowrap; }
+.momentum-summary { border-left: 1px solid #3A4350; padding-left: 16px; }
+.momentum-status {
+  display: inline-block;
+  border-radius: 99px;
+  padding: 4px 9px;
+  font-size: 0.74rem;
+  font-weight: 760;
+  margin-bottom: 6px;
+}
+.status-accelerating, .status-building, .status-strong {
+  color: #75D9B8;
+  background: rgba(99,215,176,0.11);
+}
+.status-weakening, .status-under-pressure, .status-rolling-over {
+  color: #F08B96;
+  background: rgba(241,127,141,0.11);
+}
+.status-stable, .status-mixed {
+  color: #E9C46A;
+  background: rgba(231,190,99,0.11);
+}
+.momentum-meta { color: #B7C1CE; font-size: 0.76rem; line-height: 1.45; }
+.momentum-confidence { color: #8FAEFF; font-size: 0.74rem; margin-top: 5px; }
+@media (max-width: 900px) {
+  .momentum-row { grid-template-columns: 1fr; }
+  .momentum-summary {
+    border-left: 0;
+    border-top: 1px solid #3A4350;
+    padding-left: 0;
+    padding-top: 10px;
+  }
+  .momentum-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 </style>

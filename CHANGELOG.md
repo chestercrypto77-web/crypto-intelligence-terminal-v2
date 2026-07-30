@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.2.0
+
+- Added Momentum Radar.
+- Added persistent 15-minute momentum snapshots.
+- Added 15m, 1h, 4h, 12h and 24h movement display.
+- Added direction arrows and explicit timeframe labels.
+- Added acceleration, volume confirmation and confidence scoring.
+- Added Building, Accelerating, Strong, Stable, Weakening and Rolling Over states.
+- Reduced live market cache from five minutes to three minutes.
+- Replaced near-black theme with dark charcoal and slate.
+- Retained all Release 2.1.3 and previous fixes.
+
 ## 2.1.3
 
 - Fully rewrote Personal Intelligence numeric handling.

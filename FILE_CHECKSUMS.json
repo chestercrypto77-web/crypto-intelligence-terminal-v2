@@ -8,16 +8,16 @@
     "bytes": 224
   },
   "CHANGELOG.md": {
-    "sha256": "71d02256a6d1c5de159a93f9c5175b47162c3cd9becb1120c213da5e7918eb4d",
-    "bytes": 1934
+    "sha256": "d671ca4b618f4c97284243976ebbabb63c0d79c419310fbe7182482d094714ae",
+    "bytes": 2445
   },
   "README.md": {
-    "sha256": "6045b78161f9acfd5d30a927df7438d28fd7a9e287d3b9165b8624cf1fc7f21d",
-    "bytes": 1279
+    "sha256": "d62961c17f2be2c2582db780271a48e76f98d197437eafa4ebda48d8f683cb05",
+    "bytes": 1328
   },
   "app.py": {
-    "sha256": "4d6f2359baf1399dab5f18069f3b67a29f6ae72647dc0080020898d70c2c9966",
-    "bytes": 1386
+    "sha256": "22e4d7b56e82c32bd37a308cee8973dda2fd675a6c70112fa3357d224c96ffe0",
+    "bytes": 1456
   },
   "components/__init__.py": {
     "sha256": "9e04b070ae9cba621a15b99c46fc338c8984bfb20a910527151b5bb298b9548c",
@@ -36,12 +36,12 @@
     "bytes": 139
   },
   "components/theme.py": {
-    "sha256": "1bbd9ebf37002b730bb06597983f7d7482bcc8dc77e7d59465904e6ef66fdcca",
-    "bytes": 11475
+    "sha256": "fa36e39e7653b797c0a726c359b69735a559ec735709dcd58f526a71ea112fa5",
+    "bytes": 13688
   },
   "config.py": {
-    "sha256": "812e1ce041f1011b119d842b78213cbe92255739d01e4aee3e4772c99ece3720",
-    "bytes": 1831
+    "sha256": "65d460c59f515d218f00126a5aeed0d315966936cdb2f1a60da048d8be6dac6d",
+    "bytes": 1945
   },
   "pages/conviction.py": {
     "sha256": "031a2c06d6649948e3115907c5987f7da370d297820b41ae828c7562c8b03e97",
@@ -82,6 +82,10 @@
   "pages/mission_control.py": {
     "sha256": "d5e8e4a9bf72319d7261466fa7349fd62b21b3627e97f956fa8a635bd27cd5f3",
     "bytes": 7049
+  },
+  "pages/momentum_radar.py": {
+    "sha256": "64f9a957a0b8a4a8757e82dc59318b8fbcacc316b9643339c18a316d58e2ca9d",
+    "bytes": 4515
   },
   "pages/morning_brief.py": {
     "sha256": "f283c15997ecde5e9377f7021aae21e5559229d4e631891e1f56c3979cec4ce4",
@@ -187,6 +191,10 @@
     "sha256": "7a0facb44447ee3b112520986d593f19d71bd8647d15df9a29dc0ab26b9077f0",
     "bytes": 2625
   },
+  "services/momentum_intelligence.py": {
+    "sha256": "837d1def13fb6dcab23743b170a7832a178c29215cfe57a33c4c612db630b28a",
+    "bytes": 7235
+  },
   "services/morning_brief.py": {
     "sha256": "58e0e7fd3a50ea2a4aaeaf6088bccf5a1fe6070b3bf05ef8475ea8217325f67d",
     "bytes": 3850
@@ -242,6 +250,10 @@
   "tests/test_market_layers.py": {
     "sha256": "2c649132d00efc5a850d946c8616cf43215273ea00fa3a79db67b998d0a1be42",
     "bytes": 1383
+  },
+  "tests/test_momentum_intelligence.py": {
+    "sha256": "335afd7647a3c89add5be81fbc4831e0b9f114025ef88308e1de2281c85d94da",
+    "bytes": 778
   },
   "tests/test_morning_brief.py": {
     "sha256": "eb4dc8d649543228e29710038503219c20f0de4ad776e01549bc94d38213ef32",
