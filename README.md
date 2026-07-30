@@ -1,41 +1,34 @@
-# Crypto Intelligence Terminal V2 — Release 2.1.1
+# Crypto Intelligence Terminal V2 — Release 2.1.2
 
-Release 2.1.1 fixes the two deployment issues reported after Release 2.1.0.
+This complete release fixes the Morning Brief crash and dark-theme readability.
 
 ## Fixes
 
-### Permanent dark mode
+### Morning Brief crash
 
-The app now forces dark mode through both:
+The portfolio profile uses readable conviction labels such as `Core`, `High`
+and `Medium`. The attention engine previously attempted to convert those words
+directly to a number, causing:
 
-- `.streamlit/config.toml`
-- an in-app CSS fallback loaded from `components/theme.py`
+`ValueError: could not convert string to float`
 
-This means the terminal remains dark even if a GitHub upload method omits the
-hidden `.streamlit` folder.
+The engine now safely maps conviction labels to numeric scores and also supports
+an explicit `conviction_score` field.
 
-### Correct AUD portfolio values
+### Dark navigation readability
 
-CoinGecko prices are now requested directly in Australian dollars. Release
-2.1.0 requested USD prices and displayed them as AUD, which made the estimated
-portfolio figures incorrect.
+The permanent dark background was working, but Streamlit retained low-opacity
+navigation text. Release 2.1.2 explicitly restores readable colours and opacity
+for:
 
-The Morning Brief now reports how many holdings use:
-
-- live AUD market prices
-- recent screenshot values as a fallback
-
-## Portfolio included
-
-BTC, SOL, AVAX, POL, DOT, ZIL, COTI, NEAR, SUI, SUPER, Sonic, AIOZ, FIL and SEI.
+- sidebar page names
+- sidebar section headings
+- selected navigation item
+- metrics
+- captions
+- expanders and alerts
 
 ## Deployment
 
-This is a complete project release. Extract the ZIP and upload everything inside
-the extracted folder into the root of the GitHub repository, replacing the
-existing files.
-
-When using GitHub's browser uploader, verify that `components/theme.py`,
-`config.py`, `pages/morning_brief.py` and `services/portfolio_snapshot.py`
-show the new commit. The CSS fallback means `.streamlit/config.toml` is no
-longer essential for dark mode.
+Extract the ZIP and upload everything inside the extracted folder into the root
+of the GitHub repository, replacing the existing files.

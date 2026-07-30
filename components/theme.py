@@ -302,6 +302,61 @@ h1, h2, h3, h4, h5, h6 {
   color: #8E9AAC !important;
 }
 
+
+/* Release 2.1.2: restore readable navigation and widget text. */
+[data-testid="stSidebar"] *,
+[data-testid="stSidebarContent"] *,
+[data-testid="stSidebarNav"] *,
+[data-testid="stSidebarNavItems"] *,
+[data-testid="stSidebarNavLink"] *,
+[data-testid="stSidebarNavLink"] span,
+[data-testid="stSidebarNavLink"] p {
+  color: #C8D2E1 !important;
+  opacity: 1 !important;
+}
+
+[data-testid="stSidebarNavLink"][aria-current="page"],
+[data-testid="stSidebarNavLink"][aria-current="page"] *,
+[data-testid="stSidebarNavLink"]:hover,
+[data-testid="stSidebarNavLink"]:hover * {
+  color: #F4F7FB !important;
+  opacity: 1 !important;
+}
+
+[data-testid="stSidebarNavLink"][aria-current="page"] {
+  background: rgba(111,150,255,0.15) !important;
+  border: 1px solid rgba(111,150,255,0.18) !important;
+  border-radius: 8px !important;
+}
+
+[data-testid="stSidebarNavSeparator"] *,
+[data-testid="stSidebarNavItems"] > div > span,
+[data-testid="stSidebarNavItems"] > div > p {
+  color: #7F8CA0 !important;
+  opacity: 1 !important;
+}
+
+[data-testid="stMetric"] *,
+[data-testid="stExpander"] *,
+[data-testid="stAlert"] *,
+[data-testid="stWidgetLabel"] *,
+[data-testid="stCaptionContainer"] *,
+[data-testid="stMarkdownContainer"] {
+  opacity: 1 !important;
+}
+
+[data-testid="stMetricValue"] {
+  color: #F2F5FA !important;
+}
+
+[data-testid="stMetricDelta"] {
+  color: #AEB9C8 !important;
+}
+
+a, a:visited {
+  color: #8FAEFF !important;
+}
+
 </style>
 """
 

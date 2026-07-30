@@ -19,6 +19,7 @@ PORTFOLIO_PROFILE = (
         "priority": 1,
         "group": "Foundation",
         "conviction": "Core",
+        "conviction_score": 95,
         "narrative": "Store of value and market anchor",
     },
     {
@@ -30,6 +31,7 @@ PORTFOLIO_PROFILE = (
         "priority": 1,
         "group": "Foundation",
         "conviction": "Core",
+        "conviction_score": 95,
         "narrative": "High-throughput Layer 1",
     },
     {
@@ -41,6 +43,7 @@ PORTFOLIO_PROFILE = (
         "priority": 2,
         "group": "High conviction",
         "conviction": "High",
+        "conviction_score": 82,
         "narrative": "Layer 1 and institutional subnets",
     },
     {
@@ -52,6 +55,7 @@ PORTFOLIO_PROFILE = (
         "priority": 2,
         "group": "High conviction",
         "conviction": "High",
+        "conviction_score": 82,
         "narrative": "Ethereum scaling",
     },
     {
@@ -63,6 +67,7 @@ PORTFOLIO_PROFILE = (
         "priority": 2,
         "group": "High conviction",
         "conviction": "High",
+        "conviction_score": 82,
         "narrative": "Interoperability",
     },
     {
@@ -74,6 +79,7 @@ PORTFOLIO_PROFILE = (
         "priority": 2,
         "group": "High conviction",
         "conviction": "High",
+        "conviction_score": 82,
         "narrative": "Layer 1",
     },
     {
@@ -85,6 +91,7 @@ PORTFOLIO_PROFILE = (
         "priority": 2,
         "group": "High conviction",
         "conviction": "High",
+        "conviction_score": 82,
         "narrative": "Privacy infrastructure",
     },
     {
@@ -96,6 +103,7 @@ PORTFOLIO_PROFILE = (
         "priority": 2,
         "group": "Growth position",
         "conviction": "Medium",
+        "conviction_score": 65,
         "narrative": "AI and chain abstraction",
     },
     {
@@ -107,6 +115,7 @@ PORTFOLIO_PROFILE = (
         "priority": 2,
         "group": "Growth position",
         "conviction": "Medium",
+        "conviction_score": 65,
         "narrative": "High-performance Layer 1",
     },
     {
@@ -118,6 +127,7 @@ PORTFOLIO_PROFILE = (
         "priority": 2,
         "group": "Growth position",
         "conviction": "Medium",
+        "conviction_score": 65,
         "narrative": "Gaming ecosystem",
     },
     {
@@ -129,6 +139,7 @@ PORTFOLIO_PROFILE = (
         "priority": 2,
         "group": "Growth position",
         "conviction": "Medium",
+        "conviction_score": 65,
         "narrative": "Layer 1 and DeFi",
     },
     {
@@ -140,6 +151,7 @@ PORTFOLIO_PROFILE = (
         "priority": 2,
         "group": "Growth position",
         "conviction": "Medium",
+        "conviction_score": 65,
         "narrative": "DePIN and media",
     },
     {
@@ -151,6 +163,7 @@ PORTFOLIO_PROFILE = (
         "priority": 2,
         "group": "Growth position",
         "conviction": "Medium",
+        "conviction_score": 65,
         "narrative": "Decentralised storage",
     },
     {
@@ -162,6 +175,7 @@ PORTFOLIO_PROFILE = (
         "priority": 2,
         "group": "Growth position",
         "conviction": "Medium",
+        "conviction_score": 65,
         "narrative": "Trading-focused Layer 1",
     },
 )

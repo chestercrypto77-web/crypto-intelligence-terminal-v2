@@ -7,12 +7,32 @@ def clamp(value: float, low: float = 0.0, high: float = 100.0) -> float:
     return max(low, min(high, value))
 
 
+def _numeric_conviction(row: dict[str, Any]) -> float:
+    """Return a numeric conviction score without crashing on labels such as Core/High."""
+    value = row.get("conviction_score")
+    if value is None:
+        value = row.get("score")
+    if value is None:
+        value = row.get("conviction")
+
+    if isinstance(value, (int, float)):
+        return float(value)
+
+    labels = {
+        "core": 95.0,
+        "high": 82.0,
+        "medium": 65.0,
+        "low": 40.0,
+    }
+    return labels.get(str(value or "").strip().lower(), 0.0)
+
+
 def attention_score(row: dict[str, Any], priority: int) -> float:
     change_1h = float(row.get("change_1h") or 0)
     change_24h = float(row.get("change_24h") or 0)
     change_7d = float(row.get("change_7d") or 0)
     volume_ratio = float(row.get("volume_ratio") or 0)
-    conviction = float(row.get("conviction") or row.get("score") or 0)
+    conviction = _numeric_conviction(row)
 
     momentum = (
         min(abs(change_1h), 8) * 2.2

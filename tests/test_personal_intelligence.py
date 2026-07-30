@@ -32,3 +32,31 @@ def test_personal_market_build():
     assert rows[0]["available"] is True
     assert rows[0]["attention"] >= 70
     assert attention_label(rows[0]["attention"]) in {"Immediate attention", "High attention"}
+
+def test_attention_score_accepts_descriptive_conviction_label():
+    from services.personal_intelligence import attention_score
+
+    row = {
+        "change_1h": 0,
+        "change_24h": 2,
+        "change_7d": 4,
+        "volume_ratio": 0.05,
+        "conviction": "Core",
+    }
+    score = attention_score(row, 1)
+    assert isinstance(score, float)
+    assert score > 0
+
+
+def test_attention_score_prefers_numeric_conviction_score():
+    from services.personal_intelligence import attention_score
+
+    row = {
+        "change_1h": 0,
+        "change_24h": 0,
+        "change_7d": 0,
+        "volume_ratio": 0,
+        "conviction": "High",
+        "conviction_score": 90,
+    }
+    assert attention_score(row, 2) > 20

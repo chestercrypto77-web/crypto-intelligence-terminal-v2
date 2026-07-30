@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.1.2
+
+- Fixed Morning Brief crash caused by descriptive conviction labels.
+- Added numeric conviction scores to the portfolio profile.
+- Added safe label-to-score conversion in Personal Intelligence.
+- Fixed unreadable low-opacity sidebar navigation in permanent dark mode.
+- Improved dark-mode metric, caption, alert and expander readability.
+- Retained all Release 2.1.1 fixes.
+
 ## 2.1.1
 
 - Fixed permanent dark mode when hidden `.streamlit` files are not uploaded.
