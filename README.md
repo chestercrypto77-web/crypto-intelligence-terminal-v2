@@ -1,32 +1,23 @@
-# Crypto Intelligence Terminal V2 — Release 3.1.0
+# Crypto Intelligence Terminal V4.0
 
-Release 3.1 adds a dedicated **Volume Intelligence** layer.
+A personal crypto intelligence desk designed to brief the owner on their portfolio in under five minutes.
 
-## New capabilities
+## Pages
+- Today — executive brief, workload, attention, contribution and money flow
+- Portfolio — intelligence cards for every holding
+- Markets — capital rotation and portfolio exposure
+- Watch — deliberately limited priority signals
+- Research — transparent evidence and methodology
 
-- Records one volume snapshot every 15 minutes.
-- Builds a local rolling volume baseline.
-- Calculates Relative Volume (RVOL).
-- Tracks one-hour, four-hour and twelve-hour volume direction.
-- Compares price direction with volume participation.
-- Labels activity as Extreme, High, Elevated, Normal or Quiet.
-- Identifies Strong participation, Heavy selling and unconfirmed price moves.
-- Adds a combined Market Strength score.
-- Adds volume activity and strength to What's Moving?
+## Run
+```bash
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
+streamlit run app.py
+```
 
-## Important behaviour
+Edit token balances in `config.py`. The included balances are provisional values transcribed from the previously supplied portfolio screenshot.
 
-The current 24-hour volume is available immediately. Relative volume and
-shorter-period volume trends improve as the terminal collects snapshots.
-The median of prior snapshots is used as the baseline to reduce distortion from
-single spikes.
-
-## Investment limitation
-
-Volume is supporting evidence, not a guarantee. Exchange activity, token
-migrations, wash trading and one-off events can distort reported turnover.
-
-## Deployment
-
-Extract the ZIP and upload everything inside the extracted folder into the root
-of the GitHub repository, replacing existing files.
+This application provides research and decision-support information only. It is not financial advice.

@@ -1,79 +1,21 @@
-APP_NAME = "Crypto Intelligence Terminal V2"
-APP_VERSION = "3.1.0"
-
-COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3"
-FEAR_GREED_URL = "https://api.alternative.me/fng/"
-DEFILLAMA_BASE_URL = "https://api.llama.fi"
-
-MARKET_CACHE_SECONDS = 180
-REQUEST_TIMEOUT_SECONDS = 20
-DISPLAY_CURRENCY = "aud"
-
-TRACKED_COINS = (
-    "bitcoin", "ethereum", "solana", "ripple", "binancecoin",
-    "chainlink", "hyperliquid", "ondo-finance", "aave",
-    "uniswap", "avalanche-2", "sui", "coti", "zilliqa",
-    "cardano", "dogecoin", "polkadot", "hedera-hashgraph",
-)
-
-CORE_ASSET_SYMBOLS = (
-    "BTC", "ETH", "SOL", "XRP", "BNB", "LINK", "ADA", "DOGE",
-    "DOT", "HBAR", "HYPE", "ONDO", "AAVE", "UNI", "AVAX", "SUI",
-)
-
-CORE_MAX_MARKET_RANK = 30
-EMERGING_MIN_MARKET_RANK = 31
-EMERGING_MAX_MARKET_RANK = 150
-EMERGING_MIN_MARKET_CAP = 75_000_000
-EMERGING_MAX_MARKET_CAP = 5_000_000_000
-EMERGING_MIN_VOLUME = 3_000_000
-
-SCANNER_MARKET_COUNT = 150
-SCANNER_MIN_MARKET_CAP = 50_000_000
-SCANNER_MIN_VOLUME = 2_000_000
-SCANNER_MAX_ABS_24H_CHANGE = 80.0
-HOT_CATEGORY_COUNT = 10
-DEFI_PROTOCOL_COUNT = 150
-
-HISTORY_DATABASE_PATH = "data/intelligence_history.db"
-HISTORY_DEFAULT_DAYS = 30
-WATCHLIST_DEFAULT_IDS = (
-    "ethereum", "chainlink", "ondo-finance",
-    "hyperliquid", "coti", "zilliqa",
-)
-
-INTELLIGENCE_EVIDENCE_LIMIT = 6
-INTELLIGENCE_RESEARCH_QUEUE_SIZE = 5
-INTELLIGENCE_TIMELINE_DAYS = 30
-
-PULSE_HISTORY_DAYS = 7
-PULSE_FEED_LIMIT = 12
-PULSE_MOVER_LIMIT = 8
-PULSE_NARRATIVE_LIMIT = 8
-
-PERSONAL_HISTORY_DAYS = 14
-PERSONAL_ATTENTION_LIMIT = 12
-
-# Event Detection Engine
-EVENT_DEFAULT_HISTORY_HOURS = 72
-EVENT_BRIEF_LIMIT = 5
-EVENT_PRICE_THRESHOLD_24H = 8.0
-EVENT_PRICE_THRESHOLD_1H = 2.5
-EVENT_ATTENTION_HIGH = 70.0
-EVENT_ATTENTION_CRITICAL = 88.0
-EVENT_ATTENTION_CHANGE = 10.0
-EVENT_CONVICTION_CHANGE = 6.0
-EVENT_VOLUME_RATIO_THRESHOLD = 0.18
-
-
-# Momentum Intelligence
-MOMENTUM_SNAPSHOT_MINUTES = 15
-MOMENTUM_HISTORY_HOURS = 72
-MOMENTUM_MIN_CONFIDENCE = 35
-
-
-# Volume Intelligence
-VOLUME_HISTORY_HOURS = 168
-VOLUME_BASELINE_MIN_POINTS = 8
-VOLUME_HIGH_RVOL = 1.50
-VOLUME_EXTREME_RVOL = 2.50
+APP_NAME = "Crypto Intelligence Terminal"
+APP_VERSION = "4.0.0"
+CURRENCY = "aud"
+CURRENCY_SYMBOL = "$"
+COINGECKO_MARKETS_URL = "https://api.coingecko.com/api/v3/coins/markets"
+PORTFOLIO = [
+    {"symbol":"BTC","name":"Bitcoin","coin_id":"bitcoin","tokens":0.15819773,"narrative":"Bitcoin","conviction":95},
+    {"symbol":"SOL","name":"Solana","coin_id":"solana","tokens":73.13710465,"narrative":"Layer 1","conviction":90},
+    {"symbol":"AVAX","name":"Avalanche","coin_id":"avalanche-2","tokens":155.5786594,"narrative":"Layer 1","conviction":78},
+    {"symbol":"POL","name":"Polygon","coin_id":"polygon-ecosystem-token","tokens":5744.900489,"narrative":"Scaling","conviction":70},
+    {"symbol":"DOT","name":"Polkadot","coin_id":"polkadot","tokens":415.2054283,"narrative":"Interoperability","conviction":72},
+    {"symbol":"ZIL","name":"Zilliqa","coin_id":"zilliqa","tokens":131037.5626,"narrative":"Layer 1","conviction":48},
+    {"symbol":"COTI","name":"COTI","coin_id":"coti","tokens":28002.75115,"narrative":"Privacy","conviction":70},
+    {"symbol":"NEAR","name":"NEAR Protocol","coin_id":"near","tokens":98.89177795,"narrative":"AI / Layer 1","conviction":78},
+    {"symbol":"SUI","name":"Sui","coin_id":"sui","tokens":160.3562903,"narrative":"Layer 1","conviction":82},
+    {"symbol":"SUPER","name":"SuperVerse","coin_id":"superfarm","tokens":1362.059053,"narrative":"Gaming","conviction":66},
+    {"symbol":"S","name":"Sonic","coin_id":"sonic-3","tokens":4190.378059,"narrative":"Layer 1","conviction":68},
+    {"symbol":"AIOZ","name":"AIOZ Network","coin_id":"aioz-network","tokens":1553.802358,"narrative":"AI / DePIN","conviction":72},
+    {"symbol":"FIL","name":"Filecoin","coin_id":"filecoin","tokens":84.29623079,"narrative":"DePIN","conviction":65},
+    {"symbol":"SEI","name":"Sei","coin_id":"sei-network","tokens":948.5449288,"narrative":"Layer 1","conviction":69},
+]

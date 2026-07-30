@@ -1,0 +1,14 @@
+import html,streamlit as st
+def esc(v):return html.escape(str(v))
+def page_header(title,subtitle,kicker="Personal Intelligence Desk"):st.markdown(f'<div class="desk-kicker">{esc(kicker)}</div><div class="desk-title">{esc(title)}</div><div class="desk-subtitle">{esc(subtitle)}</div>',unsafe_allow_html=True)
+def section(title):st.markdown(f'<div class="section-title">{esc(title)}</div>',unsafe_allow_html=True)
+def metric(label,value,note=""):st.markdown(f'<div class="metric-card"><div class="metric-label">{esc(label)}</div><div class="metric-value">{esc(value)}</div><div class="metric-note">{esc(note)}</div></div>',unsafe_allow_html=True)
+def signed(v,suffix="%"):return (f"▲ {v:+.2f}{suffix}" if v>0 else f"▼ {v:+.2f}{suffix}" if v<0 else f"— 0.00{suffix}")
+def change_class(v):return "positive" if v>0 else "negative" if v<0 else "neutral"
+def money(v,decimals=0):return f"${v:,.{decimals}f}"
+def asset_card(i):
+ c24=signed(i["change_24h"]);c7=signed(i["change_7d"]);a=change_class(i["change_24h"]);b=change_class(i["change_7d"]);st.markdown(f'''<div class="asset-card"><div class="asset-head"><div><div class="asset-symbol">{esc(i["symbol"])}</div><div class="asset-name">{esc(i["name"])}</div></div><div class="score">{i["score"]:.0f}</div></div><div class="data-row"><span>Value</span><b>{money(i["value"])}</b></div><div class="data-row"><span>Weight</span><b>{i["weight"]:.1f}%</b></div><div class="data-row"><span>24h</span><span class="{a}">{c24}</span></div><div class="data-row"><span>7 day</span><span class="{b}">{c7}</span></div><div class="data-row"><span>Momentum</span><b>{esc(i["momentum"])}</b></div><div class="data-row"><span>Volume</span><b>{esc(i["volume_label"])} · {i["rvol"]:.2f}×</b></div><div class="data-row"><span>Risk</span><span class="badge">{esc(i["risk"])}</span></div><div class="data-row"><span>Action</span><b>{esc(i["action"])}</b></div></div>''',unsafe_allow_html=True)
+def attention_card(i):
+ reason=f"Participation is {i['volume_label'].lower()} at {i['rvol']:.2f}× while 24-hour price is {signed(i['change_24h'])}.";st.markdown(f'''<div class="attention-card"><div class="asset-head"><div><div class="asset-symbol">{esc(i["symbol"])}</div><div class="asset-name">{esc(i["narrative"])}</div></div><span class="badge">{esc(i["action"])}</span></div><div class="data-row"><span>Momentum</span><b>{esc(i["momentum"])}</b></div><div class="data-row"><span>Market strength</span><b>{i["score"]:.0f}/100</b></div><div class="small-muted" style="margin-top:.7rem">{esc(reason)}</div></div>''',unsafe_allow_html=True)
+def progress(label,value,note=""):
+ w=max(0,min(100,value));st.markdown(f'<div class="brief-card"><div class="asset-head"><b>{esc(label)}</b><b>{value:.0f}</b></div><div class="progress-track"><div class="progress-fill" style="width:{w}%"></div></div><div class="small-muted">{esc(note)}</div></div>',unsafe_allow_html=True)

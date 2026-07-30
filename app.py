@@ -1,40 +1,9 @@
 import streamlit as st
-from components.theme import apply_theme
-from config import APP_NAME
-
-st.set_page_config(
-    page_title=APP_NAME,
-    page_icon="🧭",
-    layout="wide",
-    initial_sidebar_state="expanded",
-)
-apply_theme()
-
-navigation = st.navigation(
-    {
-        "Daily Desk": [
-            st.Page("pages/morning_brief.py", title="Today", icon="☀️", default=True),
-            st.Page("pages/portfolio_desk.py", title="My Portfolio", icon="💼"),
-            st.Page("pages/whats_moving.py", title="What's Moving?", icon="📈"),
-            st.Page("pages/volume_intelligence.py", title="Volume Intelligence", icon="🔊"),
-            st.Page("pages/market_themes.py", title="Market Themes", icon="🌍"),
-            st.Page("pages/attention_desk.py", title="Needs Attention", icon="🚨"),
-        ],
-        "Research": [
-            st.Page("pages/opportunity_scanner.py", title="Market Scanner", icon="🔎"),
-            st.Page("pages/conviction.py", title="Conviction Research", icon="⭐"),
-            st.Page("pages/defi_intelligence.py", title="DeFi Research", icon="🌐"),
-            st.Page("pages/history.py", title="History", icon="🕘"),
-        ],
-        "Technical Tools": [
-            st.Page("pages/my_market.py", title="Personal Intelligence", icon="🧠"),
-            st.Page("pages/momentum_radar.py", title="Legacy Momentum", icon="📊"),
-            st.Page("pages/events.py", title="Legacy Events", icon="🔔"),
-            st.Page("pages/market_pulse.py", title="Legacy Market Pulse", icon="⚡"),
-            st.Page("pages/market_briefing.py", title="Legacy Briefing", icon="📰"),
-            st.Page("pages/mission_control.py", title="Mission Control", icon="🎯"),
-            st.Page("pages/developer_status.py", title="Developer Status", icon="🛠️"),
-        ],
-    }
-)
-navigation.run()
+from config import APP_NAME,APP_VERSION
+from services.market_data import get_market_rows
+from intelligence.engine import build_portfolio
+from ui.theme import apply_theme
+from ui.components import page_header
+st.set_page_config(page_title=APP_NAME,page_icon="◈",layout="wide",initial_sidebar_state="expanded");apply_theme();rows,source,updated=get_market_rows();portfolio=build_portfolio(rows)
+st.sidebar.markdown("## ◈ Intelligence Desk");st.sidebar.caption(f"Version {APP_VERSION}");st.sidebar.markdown("---");st.sidebar.markdown("**Daily Desk**");st.sidebar.page_link("app.py",label="Today",icon="☀️");st.sidebar.page_link("pages/1_Portfolio.py",label="Portfolio",icon="💼");st.sidebar.page_link("pages/2_Markets.py",label="Markets",icon="🌍");st.sidebar.page_link("pages/3_Watch.py",label="Watch",icon="⚡");st.sidebar.markdown("**Research**");st.sidebar.page_link("pages/4_Research.py",label="Research",icon="🧠");st.sidebar.markdown("---");st.sidebar.caption(f"{source} · refreshes every 5 minutes")
+page_header("Good morning, Mark","Your portfolio briefing in under five minutes.");exec(open("pages/_today_content.py",encoding="utf-8").read())
