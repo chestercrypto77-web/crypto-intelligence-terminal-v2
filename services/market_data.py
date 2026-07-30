@@ -14,18 +14,24 @@ from services.http_client import DataServiceError, get_json
 MarketDataError = DataServiceError
 
 
+def _market_request(params: dict[str, Any]) -> list[dict[str, Any]]:
+    payload = get_json(f"{COINGECKO_BASE_URL}/coins/markets", params)
+    if not isinstance(payload, list):
+        raise MarketDataError("CoinGecko returned invalid market data.")
+    return payload
+
+
 @st.cache_data(ttl=MARKET_CACHE_SECONDS, show_spinner=False)
 def get_market_snapshot() -> dict[str, Any]:
     global_payload = get_json(f"{COINGECKO_BASE_URL}/global")
-    coin_payload = get_json(
-        f"{COINGECKO_BASE_URL}/coins/markets",
+    coin_payload = _market_request(
         {
             "vs_currency": DISPLAY_CURRENCY,
             "ids": ",".join(TRACKED_COINS),
             "order": "market_cap_desc",
             "sparkline": "false",
-            "price_change_percentage": "24h",
-        },
+            "price_change_percentage": "1h,24h,7d",
+        }
     )
     global_data = global_payload.get("data", {})
     market_caps = global_data.get("total_market_cap", {})
@@ -36,10 +42,13 @@ def get_market_snapshot() -> dict[str, Any]:
 
     coins = {
         item["id"]: {
+            "id": item["id"],
             "name": item.get("name", item["id"].title()),
             "symbol": item.get("symbol", "").upper(),
             "price": item.get("current_price"),
-            "change_24h": item.get("price_change_percentage_24h"),
+            "change_1h": item.get("price_change_percentage_1h_in_currency"),
+            "change_24h": item.get("price_change_percentage_24h_in_currency"),
+            "change_7d": item.get("price_change_percentage_7d_in_currency"),
             "market_cap": item.get("market_cap"),
             "volume": item.get("total_volume"),
             "rank": item.get("market_cap_rank"),
@@ -60,8 +69,7 @@ def get_market_snapshot() -> dict[str, Any]:
 
 @st.cache_data(ttl=MARKET_CACHE_SECONDS, show_spinner=False)
 def get_scanner_market() -> list[dict[str, Any]]:
-    payload = get_json(
-        f"{COINGECKO_BASE_URL}/coins/markets",
+    broad = _market_request(
         {
             "vs_currency": DISPLAY_CURRENCY,
             "order": "market_cap_desc",
@@ -69,11 +77,28 @@ def get_scanner_market() -> list[dict[str, Any]]:
             "page": 1,
             "sparkline": "false",
             "price_change_percentage": "1h,24h,7d",
-        },
+        }
     )
-    if not isinstance(payload, list):
-        raise MarketDataError("CoinGecko returned invalid scanner market data.")
-    return payload
+
+    # A top-N market request can omit smaller personal holdings such as COTI.
+    # Fetch every explicitly tracked asset separately and merge by CoinGecko ID.
+    tracked = _market_request(
+        {
+            "vs_currency": DISPLAY_CURRENCY,
+            "ids": ",".join(TRACKED_COINS),
+            "order": "market_cap_desc",
+            "sparkline": "false",
+            "price_change_percentage": "1h,24h,7d",
+        }
+    )
+
+    merged: dict[str, dict[str, Any]] = {}
+    for item in broad + tracked:
+        coin_id = str(item.get("id", "")).strip()
+        if coin_id:
+            merged[coin_id] = item
+
+    return list(merged.values())
 
 
 def clear_market_cache() -> None:

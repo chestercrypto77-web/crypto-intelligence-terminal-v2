@@ -1,5 +1,16 @@
 # Changelog
 
+## 3.0.0
+
+- Reorganised the platform as a question-based Crypto Intelligence Desk.
+- Added Today, My Portfolio, What's Moving?, Market Themes and Needs Attention.
+- Moved older technical pages into Technical Tools.
+- Fixed smaller tracked assets disappearing from the top-N scanner request.
+- Added explicit tracked-asset fetch and CoinGecko-ID merge.
+- Added live/snapshot pricing-health indicators.
+- Replaced the front-line momentum layout with scan-friendly cards.
+- Retained all existing analytical engines and historical data.
+
 ## 2.2.0
 
 - Added Momentum Radar.

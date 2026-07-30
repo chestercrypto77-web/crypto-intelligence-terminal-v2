@@ -1,39 +1,32 @@
-# Crypto Intelligence Terminal V2 — Release 2.2.0
+# Crypto Intelligence Terminal V2 — Release 3.0.0
 
-Release 2.2 introduces the charcoal design system and the first dedicated
-Momentum Intelligence layer.
+Release 3.0 reorganises the application into a focused **Crypto Intelligence Desk**.
 
-## Momentum Radar
+## Main navigation
 
-The new Momentum Radar displays:
+- **Today** — the five-minute morning briefing
+- **My Portfolio** — live values, weights and pricing health
+- **What's Moving?** — clear momentum cards with 1h, 4h and 24h arrows
+- **Market Themes** — where category momentum is flowing
+- **Needs Attention** — only important portfolio and market changes
+- **Research** — scanners and specialist analysis
+- **Technical Tools** — retained legacy pages
 
-- 15-minute movement
-- 1-hour movement
-- 4-hour movement
-- 12-hour movement
-- 24-hour movement
-- direction arrows
-- acceleration relative to the four-hour pace
-- volume confirmation
-- confidence score
-- Building, Accelerating, Strong, Stable, Weakening and Rolling Over states
+## COTI and smaller holdings fix
 
-The terminal records one snapshot per project every 15 minutes. CoinGecko's
-current one-hour and 24-hour readings are available immediately. The local
-15-minute, four-hour and 12-hour readings become progressively more accurate as
-the terminal collects history.
+The market scanner previously requested only the top 150 assets. Smaller personal
+holdings could therefore disappear from all market pages and silently fall back
+to their old screenshot value.
 
-## Design refresh
+Release 3.0 now makes a second request for every explicitly tracked CoinGecko ID
+and merges those assets into the scanner universe. This ensures COTI, Zilliqa,
+Polkadot, Sui and the other tracked projects remain available even when they are
+outside the broad top-N request.
 
-- Replaced near-black backgrounds with dark charcoal and slate.
-- Increased separation between background, panels and cards.
-- Retained the blue, green, amber and red information hierarchy.
-- Improved responsive Momentum Radar layout.
+## Design philosophy
 
-## Important limitation
-
-Momentum states are evidence-based observations, not guaranteed predictions or
-automatic investment instructions. Rapid market movement can reverse.
+Every front-line page now answers one question. Legacy technical pages remain
+available, but they no longer dominate the daily experience.
 
 ## Deployment
 

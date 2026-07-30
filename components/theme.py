@@ -539,6 +539,65 @@ a, a:visited {
   .momentum-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
+
+/* Release 3.0.0 — Crypto Intelligence Desk */
+.desk-row {
+  display:grid; grid-template-columns:minmax(180px,1fr) 150px 120px 90px;
+  gap:18px; align-items:center; padding:15px 4px;
+  border-bottom:1px solid #3A4350;
+}
+.desk-symbol {font-size:1rem;font-weight:800;color:#F4F6F9;}
+.desk-name {font-size:.78rem;color:#AEB8C5;margin-top:2px;}
+.desk-value,.desk-move {font-weight:750;text-align:right;}
+.desk-value span,.desk-move span {display:block;font-size:.65rem;color:#98A5B5;font-weight:500;}
+.source-pill {font-size:.66rem;font-weight:800;border-radius:99px;padding:4px 7px;text-align:center;}
+.source-live {color:#75D9B8;background:rgba(99,215,176,.11);}
+.source-snapshot {color:#E9C46A;background:rgba(231,190,99,.11);}
+
+.move-card {
+  background:#282F3A;border:1px solid #3A4350;border-radius:16px;
+  padding:16px 18px;margin:10px 0;
+}
+.move-head,.move-foot {display:flex;justify-content:space-between;gap:12px;align-items:center;}
+.move-head strong {font-size:1.08rem;color:#F4F6F9;}
+.move-head span {display:block;color:#AEB8C5;font-size:.76rem;margin-top:2px;}
+.state-pill {font-size:.7rem;font-weight:800;padding:4px 9px;border-radius:99px;}
+.state-accelerating,.state-building,.state-strong {color:#75D9B8;background:rgba(99,215,176,.11);}
+.state-weakening,.state-rolling-over,.state-under-pressure {color:#F08B96;background:rgba(241,127,141,.11);}
+.state-stable,.state-mixed {color:#E9C46A;background:rgba(231,190,99,.11);}
+.move-times {display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0;}
+.move-times div {background:#232A34;border:1px solid #353D49;border-radius:10px;padding:10px;}
+.move-times span {display:block;font-size:.66rem;color:#98A5B5;}
+.move-times strong {display:block;margin-top:3px;}
+.move-foot {font-size:.73rem;color:#AEB8C5;}
+
+.attention-card {
+  background:#282F3A;border:1px solid #3A4350;border-left:3px solid #E9C46A;
+  border-radius:14px;padding:15px 17px;margin:10px 0;
+}
+.attention-top {display:flex;justify-content:space-between;color:#8FAEFF;}
+.attention-top span {font-size:.7rem;color:#E9C46A;}
+.attention-title {font-weight:750;margin-top:7px;}
+.attention-copy {color:#B7C1CE;font-size:.84rem;margin-top:4px;line-height:1.45;}
+
+.theme-row {
+  display:grid;grid-template-columns:35px 1fr 140px;gap:12px;align-items:center;
+  padding:14px 4px;border-bottom:1px solid #3A4350;
+}
+.theme-row > span {color:#8FAEFF;font-weight:800;}
+.theme-row > div {text-align:right;font-weight:750;}
+.theme-row small {color:#98A5B5;font-weight:500;}
+
+/* Ensure legacy Momentum Radar does not collapse into a narrow text column. */
+.momentum-row {width:100%;min-width:0;}
+.momentum-grid {min-width:0;}
+.momentum-cell {min-width:0;}
+@media (max-width: 800px) {
+  .desk-row {grid-template-columns:1fr 110px;}
+  .desk-move,.source-pill {grid-column:2;}
+  .move-times {grid-template-columns:1fr;}
+}
+
 </style>
 """
 
