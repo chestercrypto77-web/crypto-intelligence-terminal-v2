@@ -90,6 +90,9 @@ div[role="radiogroup"] { gap: 0.35rem; }
 .severity-medium { border-left: 4px solid #5B8CFF; }
 .severity-informational { border-left: 4px solid rgba(255,255,255,0.25); }
 
+
+.morning-story{border:1px solid rgba(91,140,255,.22);border-radius:22px;padding:28px 30px;background:linear-gradient(135deg,rgba(91,140,255,.10),rgba(255,255,255,.025));margin:1rem 0 1.6rem}.morning-kicker{font-size:.72rem;letter-spacing:.12em;opacity:.58;font-weight:750}.morning-headline{font-size:2rem;font-weight:780;letter-spacing:-.035em;margin:7px 0 10px}.morning-copy{font-size:1.08rem;line-height:1.62;max-width:1050px}.morning-note{margin-top:11px;opacity:.62;font-size:.88rem}.morning-asset{border:1px solid rgba(255,255,255,.09);border-radius:17px;padding:17px;background:rgba(255,255,255,.025);min-height:185px}.morning-asset-symbol{font-size:1.1rem;font-weight:780}.morning-asset-change{font-size:1.65rem;font-weight:800;margin-top:7px}.morning-asset-label{opacity:.60;font-size:.78rem;margin-top:2px}.morning-asset-reason{opacity:.74;font-size:.84rem;line-height:1.42;margin-top:12px}.brief-row{display:flex;justify-content:space-between;align-items:center;padding:9px 2px;border-bottom:1px solid rgba(255,255,255,.07)}.brief-list-item{display:grid;grid-template-columns:30px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);line-height:1.4}.brief-list-number{width:25px;height:25px;border-radius:50%;background:rgba(91,140,255,.14);display:grid;place-items:center;font-weight:750}.brief-list-item div div{opacity:.68;font-size:.84rem;margin-top:2px}.risk-line{padding:8px 0;opacity:.82}
+
 </style>
 '''
 
