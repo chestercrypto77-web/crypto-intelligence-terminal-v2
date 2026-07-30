@@ -58,3 +58,16 @@ for column, (label, url, params) in zip(columns, tests):
 
 st.caption(f"Python {sys.version.split()[0]}")
 st.caption(f"Streamlit {st.__version__}")
+
+
+st.divider()
+st.subheader("Event Detection")
+try:
+    from services.event_store import event_counts
+    counts = event_counts(hours=24)
+    st.success(
+        f"Event database operational — {counts['total']} events in the last 24 hours "
+        f"({counts['Critical']} critical, {counts['High']} high)."
+    )
+except Exception as exc:
+    st.warning(f"Event database status unavailable: {exc}")

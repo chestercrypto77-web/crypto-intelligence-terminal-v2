@@ -1,18 +1,35 @@
-# Crypto Intelligence Terminal V2 — Release 1.0.1
+# Crypto Intelligence Terminal V2 — Release 1.1.0
 
-Release 1.0.1 is a complete full-project release.
+Release 1.1 introduces the **Event Detection Engine**.
 
-## Fixes
+The terminal now records personal-market observations, compares them with previous readings and creates a prioritised event feed for holdings, watchlist projects and Australian mainstream context.
 
-- Fixed the My Market startup ImportError caused when an older `config.py`
-  remained in GitHub during upload.
-- My Market now uses safe configuration defaults and will load even if
-  `PERSONAL_ATTENTION_LIMIT` is missing.
-- Added retries for temporary CoinGecko and other live-data interruptions.
-- Added clearer connection details when a live-data service fails.
-- Includes every feature and fix from Release 1.0.0 and Market Pulse 0.9.1.
+## New features
+
+- Event Detection page
+- automatic event scan whenever My Market loads
+- 24-hour and one-hour momentum events
+- elevated trading-intensity events
+- Attention Score threshold and change events
+- conviction-change events
+- momentum-state transition events
+- risk-increase events
+- Critical, High, Medium and Informational severity
+- stronger severity weighting for Tier 1 holdings such as COTI
+- 24-hour personal intelligence brief
+- persistent SQLite event history
+- event filters by time, project and severity
+- duplicate suppression using 15-minute observation buckets
+
+## Included fixes
+
+This is a complete full-project release and includes:
+
+- Market Pulse 0.9.1 fix
+- My Market 1.0.1 configuration fallback
+- live-data retry handling
+- Personal Intelligence Layer
 
 ## Deployment
 
-Extract the ZIP and upload **everything inside the extracted release folder**
-into the root of the GitHub repository, replacing existing files.
+Extract the ZIP. Open the extracted release folder and upload **everything inside it** into the root of the GitHub repository, replacing existing files.

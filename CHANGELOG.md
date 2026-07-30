@@ -1,26 +1,24 @@
 # Changelog
 
+## 1.1.0
+
+- Added persistent Event Detection Engine.
+- Added automatic personal-market observations on My Market load.
+- Added event generation for price momentum, short-term acceleration, volume intensity, attention thresholds, attention changes, conviction changes, risk increases and momentum transitions.
+- Added Critical, High, Medium and Informational severity.
+- Added elevated severity for Tier 1 core holdings.
+- Added Event Detection page with time, project and severity filters.
+- Added daily event brief to My Market.
+- Added 15-minute event deduplication buckets.
+- Added SQLite observation and event tables.
+- Retained all fixes and features from Release 1.0.1.
+
 ## 1.0.1
 
-- Fixed `pages/my_market.py` direct import of `PERSONAL_ATTENTION_LIMIT`.
-- Added safe config defaults for My Market.
-- Added retry handling for temporary HTTP failures and rate limiting.
-- Added clearer live-data connection error details.
-- Retained the complete Personal Intelligence Layer and Market Pulse fix.
+- Fixed My Market configuration import failure.
+- Added safe configuration defaults.
+- Added live-data retry handling.
 
 ## 1.0.0
 
-- Added Personal Intelligence Layer.
-- Added My Market as the default landing page.
-- Added configurable Tier 1 core holdings, Tier 2 active watchlist and Tier 3 Australian mainstream context.
-- Added COTI as a highest-priority monitored holding.
-- Added Attention Score using momentum, liquidity activity, conviction and personal priority.
-- Added Accelerating, Strong, Improving, Building, Stable, Weakening and Deteriorating states.
-- Added plain-English evidence summaries for personal assets.
-- Expanded tracked mainstream assets including ADA, DOGE, DOT and HBAR.
-- Included the complete Market Pulse 0.9.1 configuration fix.
-- Added full-release deployment packaging.
-
-## 0.9.0
-
-- Added Market Pulse.
+- Added Personal Intelligence Layer and Australian mainstream market context.

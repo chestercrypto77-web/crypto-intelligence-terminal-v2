@@ -84,6 +84,12 @@ div[data-testid="stDataFrame"] {
   border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden;
 }
 div[role="radiogroup"] { gap: 0.35rem; }
+
+.severity-critical { border-left: 4px solid #ee7282; background: rgba(238,114,130,0.055); }
+.severity-high { border-left: 4px solid #e4b84c; background: rgba(228,184,76,0.045); }
+.severity-medium { border-left: 4px solid #5B8CFF; }
+.severity-informational { border-left: 4px solid rgba(255,255,255,0.25); }
+
 </style>
 '''
 
