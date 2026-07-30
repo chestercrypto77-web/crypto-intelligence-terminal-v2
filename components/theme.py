@@ -598,6 +598,110 @@ a, a:visited {
   .move-times {grid-template-columns:1fr;}
 }
 
+
+/* Release 3.1.0 — Volume Intelligence */
+.volume-card {
+  background:#282F3A;
+  border:1px solid #3A4350;
+  border-radius:16px;
+  padding:16px 18px;
+  margin:10px 0;
+}
+.volume-head,.volume-foot {
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:center;
+}
+.volume-head strong {
+  display:block;
+  color:#F4F6F9;
+  font-size:1.08rem;
+}
+.volume-head span {
+  display:block;
+  color:#AEB8C5;
+  font-size:.76rem;
+  margin-top:2px;
+}
+.activity-pill,.read-pill {
+  border-radius:99px;
+  padding:4px 9px;
+  font-size:.70rem;
+  font-weight:800;
+}
+.activity-extreme,.activity-high {
+  color:#F3C86B;
+  background:rgba(231,190,99,.12);
+}
+.activity-elevated {
+  color:#8FAEFF;
+  background:rgba(111,150,255,.12);
+}
+.activity-normal,.activity-quiet,.activity-collecting-baseline {
+  color:#B7C1CE;
+  background:rgba(183,193,206,.09);
+}
+.volume-metrics {
+  display:grid;
+  grid-template-columns:repeat(6,minmax(105px,1fr));
+  gap:8px;
+  margin:14px 0;
+}
+.volume-metrics > div {
+  background:#232A34;
+  border:1px solid #353D49;
+  border-radius:10px;
+  padding:10px;
+}
+.volume-metrics span {
+  display:block;
+  color:#98A5B5;
+  font-size:.64rem;
+}
+.volume-metrics strong {
+  display:block;
+  color:#EDF1F6;
+  margin-top:4px;
+}
+.volume-foot {
+  color:#AEB8C5;
+  font-size:.74rem;
+}
+.read-strong-participation {
+  color:#75D9B8;
+  background:rgba(99,215,176,.11);
+}
+.read-heavy-selling {
+  color:#F08B96;
+  background:rgba(241,127,141,.11);
+}
+.read-price-rising-volume-unconfirmed,
+.read-weakness-on-light-participation,
+.read-unusual-activity,
+.read-normal-participation {
+  color:#E9C46A;
+  background:rgba(231,190,99,.10);
+}
+.strength-score {
+  color:#8FAEFF;
+  font-weight:750;
+}
+@media (max-width:1000px) {
+  .volume-metrics {
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+@media (max-width:650px) {
+  .volume-metrics {
+    grid-template-columns:1fr 1fr;
+  }
+  .volume-foot {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
+
 </style>
 """
 

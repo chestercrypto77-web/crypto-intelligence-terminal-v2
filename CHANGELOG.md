@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.1.0
+
+- Added Volume Intelligence page.
+- Added persistent 15-minute volume snapshots.
+- Added rolling median baseline and Relative Volume.
+- Added one-hour, four-hour and twelve-hour volume trend readings.
+- Added price-versus-volume interpretation.
+- Added Strong participation and Heavy selling detection.
+- Added Market Strength score.
+- Added volume intelligence to What's Moving?
+- Retained all Release 3.0.0 and earlier fixes.
+
 ## 3.0.0
 
 - Reorganised the platform as a question-based Crypto Intelligence Desk.

@@ -16,6 +16,7 @@ navigation = st.navigation(
             st.Page("pages/morning_brief.py", title="Today", icon="☀️", default=True),
             st.Page("pages/portfolio_desk.py", title="My Portfolio", icon="💼"),
             st.Page("pages/whats_moving.py", title="What's Moving?", icon="📈"),
+            st.Page("pages/volume_intelligence.py", title="Volume Intelligence", icon="🔊"),
             st.Page("pages/market_themes.py", title="Market Themes", icon="🌍"),
             st.Page("pages/attention_desk.py", title="Needs Attention", icon="🚨"),
         ],

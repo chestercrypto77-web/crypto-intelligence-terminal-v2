@@ -8,16 +8,16 @@
     "bytes": 224
   },
   "CHANGELOG.md": {
-    "sha256": "73d031261f228646f7e27b562575a700ef5f13cc6dd1728896f6dd3b63cf3950",
-    "bytes": 2979
+    "sha256": "54ebcd5984d845ee278a3d6c1e0c3a66bad495b8769a720291129a9e2f4d0945",
+    "bytes": 3418
   },
   "README.md": {
-    "sha256": "cb651add52ac39d34163fea73826c4d6c92939fa7f4c36651153655db8fd53a0",
-    "bytes": 1386
+    "sha256": "e27c062c2714f1c0df6418b0f33978f22960a8390f212451f7c7979c3ec3063c",
+    "bytes": 1204
   },
   "app.py": {
-    "sha256": "40e11c6c24d241beafa676b0b6dc8bc604501833d566ae64e381a116f3c012ab",
-    "bytes": 1762
+    "sha256": "e2d1d732ac615860bced92829dc18e900df2ba494e18add129d81b8547d11a9e",
+    "bytes": 1857
   },
   "components/__init__.py": {
     "sha256": "9e04b070ae9cba621a15b99c46fc338c8984bfb20a910527151b5bb298b9548c",
@@ -36,12 +36,12 @@
     "bytes": 139
   },
   "components/theme.py": {
-    "sha256": "b883de84dc8c3bc04bb319c19c554077a9f8c465eb27426834a67d1181bf43bc",
-    "bytes": 16532
+    "sha256": "191f9ad52b1d1b32ea1acfd329cdfff59a87c863601e0522107794ca6b3a469d",
+    "bytes": 18489
   },
   "config.py": {
-    "sha256": "2916fbb6ebcb32d3fa41669b8e5889a93e23e04f6a4ed255c4333f8f76106d43",
-    "bytes": 1945
+    "sha256": "a3746971c19e3f84d80ccaa2fb1061270b63c9d8f3ee787657dbd0df026cdbc1",
+    "bytes": 2078
   },
   "pages/attention_desk.py": {
     "sha256": "c9fa14a6c294cc6220419c30ba703809695873735dd3a42de75d69384d19bfef",
@@ -119,6 +119,10 @@
     "sha256": "ecdf8de4a5b64202b4d8097663c845a0b1173c6a87582da42a6d9446a97d3184",
     "bytes": 3319
   },
+  "pages/volume_intelligence.py": {
+    "sha256": "1bf37e619250f6b5d17a5173d7903938d7caec590b5fce715205792421ddb7a8",
+    "bytes": 5315
+  },
   "pages/watchlist.py": {
     "sha256": "8ebe6154908abec3d02d58953484bd8aa87c3dbf4ff9f6cf5e2b1c57d43da7c8",
     "bytes": 3746
@@ -128,8 +132,8 @@
     "bytes": 2174
   },
   "pages/whats_moving.py": {
-    "sha256": "f945629476c81d060bf26d1e88a0bea7152227e1d5731290513b276ea5c03ac6",
-    "bytes": 2762
+    "sha256": "1f140530f930a3f8abc3c058f835961e7af40c120e45d604721780978e8f0148",
+    "bytes": 2988
   },
   "personal_market_config.py": {
     "sha256": "f58510da84a52c149212889faf66ae7ed58bf4f12f1398c05fc05421be22b67c",
@@ -247,6 +251,10 @@
     "sha256": "1d7b4ee640651c78a1e3eb75f7ec5fc8a325807dc556bad4cf6aadf6e000238e",
     "bytes": 1131
   },
+  "services/volume_intelligence.py": {
+    "sha256": "497defcb17a38fa6f54449e9095a96df7c2bbf3d87c1ea7d9841b4172096e67b",
+    "bytes": 7927
+  },
   "tests/test_event_engine.py": {
     "sha256": "f93e6144a8991f4ea2dd5ef14ca27a6dabab357d2fb9612d2feac8784fceca18",
     "bytes": 1815
@@ -290,5 +298,9 @@
   "tests/test_pulse_engine.py": {
     "sha256": "bb477f4721fd40c1f5f5ed2f87fe24a4faae4a27368123bb0c32c7bb01411938",
     "bytes": 1230
+  },
+  "tests/test_volume_intelligence.py": {
+    "sha256": "8382fc073f8fab3d26fe1546bbe320866df8ec0212fde1e3dcc47896ef652a76",
+    "bytes": 808
   }
 }

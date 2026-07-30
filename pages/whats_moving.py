@@ -5,12 +5,14 @@ from components.layout import page_header
 from services.market_data import MarketDataError, get_scanner_market
 from services.momentum_intelligence import build_momentum_radar
 from services.scanner import build_opportunity_list
+from services.volume_intelligence import build_volume_intelligence
 
 page_header("What's Moving?", "Where momentum is strengthening or fading right now")
 
 try:
     scanner = build_opportunity_list(get_scanner_market())
     radar = build_momentum_radar(scanner["rows"])
+    volume_map = {row["symbol"]: row for row in build_volume_intelligence(scanner["rows"])}
 
     tabs = st.tabs(["Accelerating", "Building", "Strong", "Weakening", "All"])
 
@@ -33,8 +35,8 @@ try:
                 f"<div><span>4H</span><strong>{row['arrows']['4h']} {'Collecting' if four is None else f'{four:+.2f}%'}</strong></div>"
                 f"<div><span>24H</span><strong>{row['arrows']['24h']} {'Collecting' if day is None else f'{day:+.2f}%'}</strong></div>"
                 f"</div>"
-                f"<div class='move-foot'><span>Volume {'confirmed' if row['volume_confirmed'] else 'not confirmed'}</span>"
-                f"<span>Confidence {row['confidence']}%</span></div>"
+                f"<div class='move-foot'><span>Volume {volume_map.get(row['symbol'], {}).get('volume_activity', 'Unknown')}</span>"
+                f"<span>Strength {volume_map.get(row['symbol'], {}).get('market_strength', row['confidence'])}/100</span></div>"
                 f"</div>",
                 unsafe_allow_html=True,
             )

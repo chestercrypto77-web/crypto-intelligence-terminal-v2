@@ -1,32 +1,30 @@
-# Crypto Intelligence Terminal V2 — Release 3.0.0
+# Crypto Intelligence Terminal V2 — Release 3.1.0
 
-Release 3.0 reorganises the application into a focused **Crypto Intelligence Desk**.
+Release 3.1 adds a dedicated **Volume Intelligence** layer.
 
-## Main navigation
+## New capabilities
 
-- **Today** — the five-minute morning briefing
-- **My Portfolio** — live values, weights and pricing health
-- **What's Moving?** — clear momentum cards with 1h, 4h and 24h arrows
-- **Market Themes** — where category momentum is flowing
-- **Needs Attention** — only important portfolio and market changes
-- **Research** — scanners and specialist analysis
-- **Technical Tools** — retained legacy pages
+- Records one volume snapshot every 15 minutes.
+- Builds a local rolling volume baseline.
+- Calculates Relative Volume (RVOL).
+- Tracks one-hour, four-hour and twelve-hour volume direction.
+- Compares price direction with volume participation.
+- Labels activity as Extreme, High, Elevated, Normal or Quiet.
+- Identifies Strong participation, Heavy selling and unconfirmed price moves.
+- Adds a combined Market Strength score.
+- Adds volume activity and strength to What's Moving?
 
-## COTI and smaller holdings fix
+## Important behaviour
 
-The market scanner previously requested only the top 150 assets. Smaller personal
-holdings could therefore disappear from all market pages and silently fall back
-to their old screenshot value.
+The current 24-hour volume is available immediately. Relative volume and
+shorter-period volume trends improve as the terminal collects snapshots.
+The median of prior snapshots is used as the baseline to reduce distortion from
+single spikes.
 
-Release 3.0 now makes a second request for every explicitly tracked CoinGecko ID
-and merges those assets into the scanner universe. This ensures COTI, Zilliqa,
-Polkadot, Sui and the other tracked projects remain available even when they are
-outside the broad top-N request.
+## Investment limitation
 
-## Design philosophy
-
-Every front-line page now answers one question. Legacy technical pages remain
-available, but they no longer dominate the daily experience.
+Volume is supporting evidence, not a guarantee. Exchange activity, token
+migrations, wash trading and one-off events can distort reported turnover.
 
 ## Deployment
 
