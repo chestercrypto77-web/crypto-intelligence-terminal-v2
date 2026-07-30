@@ -1,20 +1,20 @@
 # Changelog
 
+## 0.9.0
+
+- Added Market Pulse page.
+- Added composite Market Pulse score and market-state label.
+- Added pulse direction using stored historical intelligence.
+- Added live intelligence feed.
+- Added biggest conviction movers based on snapshot comparisons.
+- Added narrative heatmap.
+- Added portfolio monitor with Improving, Stable, Cooling, Accelerating and Weakening states.
+- Added concise daily intelligence brief.
+- Added focused daily research list.
+- Added robust New baseline handling when history is unavailable.
+- Expanded Developer Status checks.
+
 ## 0.8.0
 
-- Added dedicated Intelligence Engine page.
-- Added evidence-backed project conclusions and confidence scoring.
-- Added transparent Investment Health Score breakdown.
-- Added rule-based project intelligence summaries.
-- Added category rotation signals based on movement and turnover.
-- Added focused five-project research queue.
-- Added conviction and opportunity timelines from saved snapshots.
-- Enhanced Opportunity Radar with health, evidence and timeline sections.
-- Added explicit data-coverage and limitation disclosures.
-- Continued strict policy against estimating unavailable wallet, developer, fee or flow data.
-
-## 0.7.0
-
-- Added Market Intelligence and Opportunity Radar modes.
-- Separated established assets from emerging research candidates.
-- Added project momentum tables and matched DeFi TVL trends.
+- Added Intelligence Engine.
+- Added evidence-backed conclusions, health scoring, capital rotation and timelines.

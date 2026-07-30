@@ -6,12 +6,8 @@ import streamlit as st
 
 from components.layout import page_header
 from config import (
-    APP_VERSION,
-    COINGECKO_BASE_URL,
-    DEFILLAMA_BASE_URL,
-    FEAR_GREED_URL,
-    HISTORY_DATABASE_PATH,
-    REQUEST_TIMEOUT_SECONDS,
+    APP_VERSION, COINGECKO_BASE_URL, DEFILLAMA_BASE_URL,
+    FEAR_GREED_URL, HISTORY_DATABASE_PATH, REQUEST_TIMEOUT_SECONDS,
 )
 from services.history_store import snapshot_count
 
@@ -23,11 +19,11 @@ required = {
     "Services folder": Path("services").is_dir(),
     "Configuration": Path("config.py").is_file(),
     "Mission Control page": Path("pages/mission_control.py").is_file(),
+    "Market Pulse page": Path("pages/market_pulse.py").is_file(),
     "Intelligence Engine page": Path("pages/intelligence_engine.py").is_file(),
     "Opportunity Radar page": Path("pages/opportunity_radar.py").is_file(),
-    "Intelligence component": Path("components/intelligence.py").is_file(),
+    "Pulse engine": Path("services/pulse_engine.py").is_file(),
     "Intelligence service": Path("services/intelligence_engine.py").is_file(),
-    "Timeline service": Path("services/timeline.py").is_file(),
     "History page": Path("pages/history.py").is_file(),
     "Watchlist page": Path("pages/watchlist.py").is_file(),
     "History service": Path("services/history_store.py").is_file(),
@@ -36,10 +32,7 @@ required = {
 }
 
 for label, passed in required.items():
-    if passed:
-        st.success(f"✅ {label} found")
-    else:
-        st.error(f"❌ {label} missing")
+    st.success(f"✅ {label} found") if passed else st.error(f"❌ {label} missing")
 
 counts = snapshot_count()
 st.info(
@@ -53,7 +46,6 @@ tests = (
     ("Fear & Greed", FEAR_GREED_URL, {"limit": 1}),
     ("DeFiLlama", f"{DEFILLAMA_BASE_URL}/protocols", None),
 )
-
 for column, (label, url, params) in zip(columns, tests):
     with column:
         if st.button(f"Test {label}"):

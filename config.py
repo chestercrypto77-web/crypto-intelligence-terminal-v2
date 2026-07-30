@@ -1,5 +1,5 @@
 APP_NAME = "Crypto Intelligence Terminal V2"
-APP_VERSION = "0.8.0"
+APP_VERSION = "0.9.0"
 
 COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3"
 FEAR_GREED_URL = "https://api.alternative.me/fng/"
@@ -10,33 +10,14 @@ REQUEST_TIMEOUT_SECONDS = 20
 DISPLAY_CURRENCY = "usd"
 
 TRACKED_COINS = (
-    "bitcoin",
-    "ethereum",
-    "solana",
-    "ripple",
-    "binancecoin",
-    "chainlink",
-    "hyperliquid",
-    "ondo-finance",
-    "aave",
-    "uniswap",
-    "avalanche-2",
-    "sui",
+    "bitcoin", "ethereum", "solana", "ripple", "binancecoin",
+    "chainlink", "hyperliquid", "ondo-finance", "aave",
+    "uniswap", "avalanche-2", "sui",
 )
 
 CORE_ASSET_SYMBOLS = (
-    "BTC",
-    "ETH",
-    "SOL",
-    "XRP",
-    "BNB",
-    "LINK",
-    "HYPE",
-    "ONDO",
-    "AAVE",
-    "UNI",
-    "AVAX",
-    "SUI",
+    "BTC", "ETH", "SOL", "XRP", "BNB", "LINK",
+    "HYPE", "ONDO", "AAVE", "UNI", "AVAX", "SUI",
 )
 
 CORE_MAX_MARKET_RANK = 30
@@ -56,14 +37,15 @@ DEFI_PROTOCOL_COUNT = 150
 HISTORY_DATABASE_PATH = "data/intelligence_history.db"
 HISTORY_DEFAULT_DAYS = 30
 WATCHLIST_DEFAULT_IDS = (
-    "ethereum",
-    "chainlink",
-    "ondo-finance",
-    "hyperliquid",
-    "coti",
-    "zilliqa",
+    "ethereum", "chainlink", "ondo-finance",
+    "hyperliquid", "coti", "zilliqa",
 )
 
 INTELLIGENCE_EVIDENCE_LIMIT = 6
 INTELLIGENCE_RESEARCH_QUEUE_SIZE = 5
 INTELLIGENCE_TIMELINE_DAYS = 30
+
+PULSE_HISTORY_DAYS = 7
+PULSE_FEED_LIMIT = 12
+PULSE_MOVER_LIMIT = 8
+PULSE_NARRATIVE_LIMIT = 8

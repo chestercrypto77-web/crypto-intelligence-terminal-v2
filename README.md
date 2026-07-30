@@ -1,44 +1,38 @@
-# Crypto Intelligence Terminal V2 — Release 0.8.0
+# Crypto Intelligence Terminal V2 — Release 0.9.0
 
-Release 0.8 introduces the terminal's Intelligence Engine.
+Release 0.9 introduces **Market Pulse**, a live decision-support page designed to answer:
 
-## New capabilities
+> What changed, why does it matter, and what deserves attention now?
 
-### Evidence Engine
+## Market Pulse features
 
-Every project conclusion is supported by visible evidence, including available conviction, price momentum, liquidity and matched TVL changes. The interface also reports an evidence-confidence percentage based on data coverage and agreement.
+- composite Market Pulse score
+- health label and improving / cooling direction
+- concise daily intelligence brief
+- live intelligence feed
+- biggest conviction movers
+- narrative heatmap
+- portfolio status monitor
+- focused research list
 
-### Investment Health Score
+## Scoring inputs
 
-Projects receive a transparent breakdown across:
+The Market Pulse score combines:
 
-- fundamentals
-- momentum
-- liquidity
-- adoption / TVL
-- risk quality
+- global market-cap movement
+- Fear & Greed sentiment
+- relative category rotation
+- portfolio intelligence score
 
-The overall score is a weighted synthesis of those components.
+## Historical intelligence
 
-### Rule-based Intelligence Summary
+Conviction movers use stored snapshots where available. Projects without a historical baseline are labelled **New baseline** rather than assigned an invented change.
 
-Project summaries are generated directly from observed data. They do not use unsupported claims or fabricate missing metrics.
+## Data integrity
 
-### Capital Rotation
+Capital rotation is a relative activity signal based on category movement and turnover. It is not represented as measured on-chain capital flow.
 
-Category movement and turnover are combined into a relative rotation signal. This is clearly labelled as an activity indicator—not verified on-chain capital flow.
-
-### Research Queue
-
-Opportunity Radar presents a focused list of emerging research candidates rather than an endless coin list.
-
-### Opportunity Timeline
-
-Saved historical snapshots are used to chart conviction and opportunity scores. The timeline becomes more useful as snapshots accumulate.
-
-## Data integrity rule
-
-The terminal does not estimate wallet activity, developer activity, fees, stablecoin flows or TVL. TVL appears only when a reliable DeFiLlama match is available.
+The terminal continues not to fabricate wallet, developer, fee, stablecoin-flow or unavailable TVL metrics.
 
 ## Installation
 
