@@ -1,30 +1,41 @@
-# Crypto Intelligence Terminal V2 — Release 2.1.0
+# Crypto Intelligence Terminal V2 — Release 2.1.1
 
-Release 2.1 is the **Permanent Dark Portfolio Edition**.
+Release 2.1.1 fixes the two deployment issues reported after Release 2.1.0.
 
-## Main improvements
+## Fixes
 
-- Permanent deep-charcoal dark theme configured at the Streamlit level.
-- No bright white panels or tables.
-- Calmer typography, spacing and restrained colour use.
-- Recent real portfolio balances added from the supplied holdings screenshot.
-- Live estimated AUD portfolio value when market prices are available.
-- Snapshot values remain as a fallback.
-- Portfolio-weighted 24-hour movement estimate.
-- Front-page focus balances position size, conviction and signal strength.
-- “Nothing urgent” reassurance when the system detects no important event.
-- Technical information remains collapsed or under Deep Dive.
+### Permanent dark mode
 
-## Recent holdings included
+The app now forces dark mode through both:
 
-BTC, SOL, AVAX, POL, DOT, ZIL, COTI, NEAR, SUI, SUPER, Sonic, AIOZ,
-FIL and SEI.
+- `.streamlit/config.toml`
+- an in-app CSS fallback loaded from `components/theme.py`
 
-The balances can be refined later. This release does not treat the snapshot as
-tax or accounting data.
+This means the terminal remains dark even if a GitHub upload method omits the
+hidden `.streamlit` folder.
+
+### Correct AUD portfolio values
+
+CoinGecko prices are now requested directly in Australian dollars. Release
+2.1.0 requested USD prices and displayed them as AUD, which made the estimated
+portfolio figures incorrect.
+
+The Morning Brief now reports how many holdings use:
+
+- live AUD market prices
+- recent screenshot values as a fallback
+
+## Portfolio included
+
+BTC, SOL, AVAX, POL, DOT, ZIL, COTI, NEAR, SUI, SUPER, Sonic, AIOZ, FIL and SEI.
 
 ## Deployment
 
-Extract the ZIP and upload everything inside the extracted folder into the root
-of the GitHub repository, replacing the existing files. Streamlit will apply
-the permanent dark theme from `.streamlit/config.toml`.
+This is a complete project release. Extract the ZIP and upload everything inside
+the extracted folder into the root of the GitHub repository, replacing the
+existing files.
+
+When using GitHub's browser uploader, verify that `components/theme.py`,
+`config.py`, `pages/morning_brief.py` and `services/portfolio_snapshot.py`
+show the new commit. The CSS fallback means `.streamlit/config.toml` is no
+longer essential for dark mode.

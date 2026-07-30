@@ -5,7 +5,7 @@ from services.portfolio_snapshot import (
 )
 
 
-def test_live_values_use_balance_and_market_price():
+def test_live_values_use_balance_and_aud_market_price():
     profile = (
         {
             "symbol": "BTC",
@@ -20,17 +20,47 @@ def test_live_values_use_balance_and_market_price():
     market = [{"symbol": "BTC", "price": 100000, "attention": 50, "change_24h": 2}]
     rows = enrich_with_portfolio(market, profile)
     assert rows[0]["live_value_aud"] == 10000
+    assert rows[0]["valuation_source"] == "Live AUD estimate"
     assert rows[0]["portfolio_weight"] == 100
 
 
-def test_weighted_portfolio_change():
+def test_missing_live_price_uses_snapshot_value():
+    profile = (
+        {
+            "symbol": "COTI",
+            "name": "COTI",
+            "balance": 28000,
+            "snapshot_value_aud": 312.26,
+            "priority": 2,
+            "group": "High conviction",
+            "conviction": "High",
+        },
+    )
+    rows = enrich_with_portfolio([], profile)
+    assert rows[0]["live_value_aud"] == 312.26
+    assert rows[0]["valuation_source"] == "Recent screenshot"
+
+
+def test_weighted_portfolio_change_and_source_counts():
     rows = [
-        {"live_value_aud": 10000, "snapshot_value_aud": 10000, "change_24h": 2},
-        {"live_value_aud": 5000, "snapshot_value_aud": 5000, "change_24h": -1},
+        {
+            "live_value_aud": 10000,
+            "snapshot_value_aud": 9000,
+            "change_24h": 2,
+            "valuation_source": "Live AUD estimate",
+        },
+        {
+            "live_value_aud": 5000,
+            "snapshot_value_aud": 5000,
+            "change_24h": -1,
+            "valuation_source": "Recent screenshot",
+        },
     ]
     totals = portfolio_totals(rows)
     assert round(totals["weighted_change_24h"], 2) == 1.0
     assert round(totals["estimated_day_change_aud"], 2) == 150.0
+    assert totals["live_price_count"] == 1
+    assert totals["snapshot_fallback_count"] == 1
 
 
 def test_focus_balances_attention_and_weight():

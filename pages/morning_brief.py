@@ -16,7 +16,7 @@ from services.personal_intelligence import build_personal_market
 from services.portfolio_snapshot import enrich_with_portfolio, portfolio_focus, portfolio_totals
 from services.scanner import build_opportunity_list
 
-APP_VERSION = getattr(config, "APP_VERSION", "2.1.0")
+APP_VERSION = getattr(config, "APP_VERSION", "2.1.1")
 
 page_header("Good morning, Mark", "Your calm five-minute crypto briefing")
 
@@ -56,7 +56,7 @@ try:
     risk_rows = risks(rows, 3)
 
     st.caption(
-        f"Updated {utc_time(market['updated_at'])} · {PROFILE_STATUS} · Release {APP_VERSION}"
+        f"Updated {utc_time(market['updated_at'])} · AUD pricing · {PROFILE_STATUS} · Release {APP_VERSION}"
     )
 
     value = totals["value_aud"]
@@ -204,8 +204,9 @@ try:
 
     with st.expander("About these portfolio figures"):
         st.write(
-            "Balances are taken from the recent screenshot you supplied. Values are estimated "
-            "using live market prices when available, with the screenshot values used as a fallback. "
+            f"Balances are taken from the recent screenshot you supplied. "
+            f"{int(totals['live_price_count'])} holdings currently use live AUD prices and "
+            f"{int(totals['snapshot_fallback_count'])} use their recent screenshot value as a fallback. "
             "This is a portfolio-awareness tool, not tax or financial accounting software."
         )
 

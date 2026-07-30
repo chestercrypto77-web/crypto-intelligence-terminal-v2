@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.1.1
+
+- Fixed permanent dark mode when hidden `.streamlit` files are not uploaded.
+- Added a comprehensive in-app dark CSS fallback.
+- Changed CoinGecko display currency from USD to AUD.
+- Fixed live portfolio values being labelled as AUD while calculated from USD prices.
+- Added live-price and snapshot-fallback counts.
+- Preserved all Release 2.1.0 features.
+
 ## 2.1.0
 
 - Added permanent dark theme through `.streamlit/config.toml`.

@@ -220,6 +220,88 @@ div[data-testid="stDataFrame"] {
 .severity-critical { border-left: 3px solid var(--red); }
 .severity-high { border-left: 3px solid var(--amber); }
 .severity-medium { border-left: 3px solid var(--blue); }
+
+/* Release 2.1.1: hard dark-mode fallback.
+   This applies even when GitHub upload tools omit the hidden .streamlit folder. */
+#root,
+[data-testid="stApp"],
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+[data-testid="stMainBlockContainer"],
+section.main,
+.main,
+.stApp,
+.stApp > div {
+  background-color: #0B0F17 !important;
+  color: #E8EDF5 !important;
+}
+
+[data-testid="stToolbar"],
+[data-testid="stDecoration"],
+[data-testid="stStatusWidget"],
+[data-testid="stBottomBlockContainer"] {
+  background: transparent !important;
+}
+
+[data-testid="stSidebarContent"],
+[data-testid="stSidebarUserContent"],
+[data-testid="stSidebarNav"],
+[data-testid="stSidebarNavItems"] {
+  background-color: #0E1420 !important;
+}
+
+[data-testid="stMetric"],
+[data-testid="stAlert"],
+[data-testid="stExpander"],
+[data-testid="stForm"],
+[data-testid="stDataFrame"],
+[data-testid="stTable"],
+[data-testid="stJson"],
+[data-testid="stCodeBlock"],
+[data-testid="stVerticalBlockBorderWrapper"] {
+  background-color: #111827 !important;
+  color: #E8EDF5 !important;
+}
+
+div[data-baseweb="select"] > div,
+div[data-baseweb="input"] > div,
+div[data-baseweb="textarea"] > div,
+input,
+textarea {
+  background-color: #111827 !important;
+  color: #E8EDF5 !important;
+  border-color: rgba(255,255,255,0.10) !important;
+}
+
+[data-baseweb="popover"],
+[data-baseweb="menu"],
+[role="listbox"],
+[role="option"] {
+  background-color: #111827 !important;
+  color: #E8EDF5 !important;
+}
+
+[data-testid="stDataFrame"] iframe {
+  background-color: #111827 !important;
+  color-scheme: dark !important;
+}
+
+.stMarkdown,
+.stMarkdown p,
+.stMarkdown span,
+.stCaption,
+label,
+h1, h2, h3, h4, h5, h6 {
+  color: #E8EDF5 !important;
+}
+
+.stCaption,
+[data-testid="stCaptionContainer"],
+[data-testid="stMetricLabel"],
+[data-testid="stWidgetLabel"] {
+  color: #8E9AAC !important;
+}
+
 </style>
 """
 

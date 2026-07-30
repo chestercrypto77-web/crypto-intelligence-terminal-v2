@@ -8,12 +8,12 @@
     "bytes": 224
   },
   "CHANGELOG.md": {
-    "sha256": "c5806ef9be037fcd777a69333d255d6e673472ee3bce5be06b10ee97baded88f",
-    "bytes": 773
+    "sha256": "f045b043f85ca2ee3563f5be26be7fb750363918fa119ca760a3c42aad063142",
+    "bytes": 1140
   },
   "README.md": {
-    "sha256": "d0fcc87d8a4e7290b9fb03e331a4310ef04613323d5b9ef6c56067a5f3192f01",
-    "bytes": 1194
+    "sha256": "998640f72d019dc38c75e7befc7a2ec4343c140f12d26190edf900510d934870",
+    "bytes": 1290
   },
   "app.py": {
     "sha256": "4d6f2359baf1399dab5f18069f3b67a29f6ae72647dc0080020898d70c2c9966",
@@ -36,11 +36,11 @@
     "bytes": 139
   },
   "components/theme.py": {
-    "sha256": "ca8e7d01e84be2c046297a7ba445b36d77a87dae2226d69d232a1b85548e8db2",
-    "bytes": 5336
+    "sha256": "a89c3a61fcb76459e7eaad82afa4ed3427c1d20d115d2d158b04bb9aa7a89cb6",
+    "bytes": 7168
   },
   "config.py": {
-    "sha256": "e8c10d61b48b0bc17a9eefbcfa896e8be906bfaaf9b5dc60df44da8094e2e366",
+    "sha256": "644d1f6e7f6830cb030f7bed30b59e0b91d0f24c7375ac86bf712f0c38e70c71",
     "bytes": 1831
   },
   "pages/conviction.py": {
@@ -84,8 +84,8 @@
     "bytes": 7049
   },
   "pages/morning_brief.py": {
-    "sha256": "b9fd2a0eee743946cb53604d765670b08d6a684ced43dcfc2b98d6fce1f010b9",
-    "bytes": 8469
+    "sha256": "949def17510ab3f2ac930d961582ce7016d8a1e5078045a47aac470a74eb8714",
+    "bytes": 8560
   },
   "pages/my_market.py": {
     "sha256": "bc6feaf722f99885b15423a29235254567445e9642f95e1faa7c9d331dac19af",
@@ -200,8 +200,8 @@
     "bytes": 1537
   },
   "services/portfolio_snapshot.py": {
-    "sha256": "428209f9e886f56959ba2639328f1da3cbe475fd2efb85e8b903c4a2656c40ef",
-    "bytes": 2480
+    "sha256": "d5fd1ed3fe1471b7c4cfe7f749c80f10dc86b37085f139dcfc076f505e93934f",
+    "bytes": 3312
   },
   "services/pulse_engine.py": {
     "sha256": "a1feece2a9eca4086a6935f8e67567a9bf4ae1b81ebcdedc75a82273d8dd43c2",
@@ -252,8 +252,8 @@
     "bytes": 1111
   },
   "tests/test_portfolio_snapshot.py": {
-    "sha256": "6263f778ac31d483bc873d41a97a5373ac4627dd6ba70b1afc0041b8332b542e",
-    "bytes": 1580
+    "sha256": "cc32825d3a7fc468ef76265ee97df7dcf5d48e0abfa652f3506e492e0f047996",
+    "bytes": 2438
   },
   "tests/test_pulse_engine.py": {
     "sha256": "bb477f4721fd40c1f5f5ed2f87fe24a4faae4a27368123bb0c32c7bb01411938",
