@@ -15,7 +15,8 @@ apply_theme()
 navigation = st.navigation(
     {
         "Intelligence": [
-            st.Page("pages/mission_control.py", title="Mission Control", icon="🎯", default=True),
+            st.Page("pages/my_market.py", title="My Market", icon="⭐", default=True),
+            st.Page("pages/mission_control.py", title="Mission Control", icon="🎯"),
             st.Page("pages/market_pulse.py", title="Market Pulse", icon="⚡"),
             st.Page("pages/intelligence_engine.py", title="Intelligence Engine", icon="🧠"),
             st.Page("pages/market_briefing.py", title="Market Briefing", icon="📰"),

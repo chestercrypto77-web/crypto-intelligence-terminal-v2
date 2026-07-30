@@ -1,20 +1,18 @@
 # Changelog
 
+## 1.0.0
+
+- Added Personal Intelligence Layer.
+- Added My Market as the default landing page.
+- Added configurable Tier 1 core holdings, Tier 2 active watchlist and Tier 3 Australian mainstream context.
+- Added COTI as a highest-priority monitored holding.
+- Added Attention Score using momentum, liquidity activity, conviction and personal priority.
+- Added Accelerating, Strong, Improving, Building, Stable, Weakening and Deteriorating states.
+- Added plain-English evidence summaries for personal assets.
+- Expanded tracked mainstream assets including ADA, DOGE, DOT and HBAR.
+- Included the complete Market Pulse 0.9.1 configuration fix.
+- Added full-release deployment packaging.
+
 ## 0.9.0
 
-- Added Market Pulse page.
-- Added composite Market Pulse score and market-state label.
-- Added pulse direction using stored historical intelligence.
-- Added live intelligence feed.
-- Added biggest conviction movers based on snapshot comparisons.
-- Added narrative heatmap.
-- Added portfolio monitor with Improving, Stable, Cooling, Accelerating and Weakening states.
-- Added concise daily intelligence brief.
-- Added focused daily research list.
-- Added robust New baseline handling when history is unavailable.
-- Expanded Developer Status checks.
-
-## 0.8.0
-
-- Added Intelligence Engine.
-- Added evidence-backed conclusions, health scoring, capital rotation and timelines.
+- Added Market Pulse.

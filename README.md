@@ -1,41 +1,29 @@
-# Crypto Intelligence Terminal V2 — Release 0.9.0
+# Crypto Intelligence Terminal V2 — Release 1.0.0
 
-Release 0.9 introduces **Market Pulse**, a live decision-support page designed to answer:
+Release 1.0 adds the **Personal Intelligence Layer**.
 
-> What changed, why does it matter, and what deserves attention now?
+The terminal now opens on **My Market**, prioritising the crypto projects the user actually holds or follows while retaining broader Australian mainstream market context.
 
-## Market Pulse features
+## New features
 
-- composite Market Pulse score
-- health label and improving / cooling direction
-- concise daily intelligence brief
-- live intelligence feed
-- biggest conviction movers
-- narrative heatmap
-- portfolio status monitor
-- focused research list
+- My Market is now the default landing page
+- COTI is included as a Tier 1 core holding
+- Personal Attention Score
+- holdings and active-watchlist monitoring
+- Australian mainstream crypto context
+- momentum state classifications
+- plain-English reasons for every attention signal
+- configurable personal market file
+- complete Market Pulse 0.9.1 fix included
 
-## Scoring inputs
+## Personal tiers
 
-The Market Pulse score combines:
+- Tier 1: core holdings and highest monitoring priority
+- Tier 2: active watchlist
+- Tier 3: Australian mainstream context
 
-- global market-cap movement
-- Fear & Greed sentiment
-- relative category rotation
-- portfolio intelligence score
+Edit `personal_market_config.py` to change projects or priorities.
 
-## Historical intelligence
+## Deployment
 
-Conviction movers use stored snapshots where available. Projects without a historical baseline are labelled **New baseline** rather than assigned an invented change.
-
-## Data integrity
-
-Capital rotation is a relative activity signal based on category movement and turnover. It is not represented as measured on-chain capital flow.
-
-The terminal continues not to fabricate wallet, developer, fee, stablecoin-flow or unavailable TVL metrics.
-
-## Installation
-
-Extract the ZIP and upload every item inside the extracted release folder to the repository root, replacing existing files.
-
-Entry point: `app.py`
+Extract the ZIP. Open the release folder and upload **everything inside it** to the root of the GitHub repository, replacing existing files.

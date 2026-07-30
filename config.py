@@ -1,5 +1,5 @@
 APP_NAME = "Crypto Intelligence Terminal V2"
-APP_VERSION = "0.9.0"
+APP_VERSION = "1.0.0"
 
 COINGECKO_BASE_URL = "https://api.coingecko.com/api/v3"
 FEAR_GREED_URL = "https://api.alternative.me/fng/"
@@ -12,12 +12,13 @@ DISPLAY_CURRENCY = "usd"
 TRACKED_COINS = (
     "bitcoin", "ethereum", "solana", "ripple", "binancecoin",
     "chainlink", "hyperliquid", "ondo-finance", "aave",
-    "uniswap", "avalanche-2", "sui",
+    "uniswap", "avalanche-2", "sui", "coti", "zilliqa",
+    "cardano", "dogecoin", "polkadot", "hedera-hashgraph",
 )
 
 CORE_ASSET_SYMBOLS = (
-    "BTC", "ETH", "SOL", "XRP", "BNB", "LINK",
-    "HYPE", "ONDO", "AAVE", "UNI", "AVAX", "SUI",
+    "BTC", "ETH", "SOL", "XRP", "BNB", "LINK", "ADA", "DOGE",
+    "DOT", "HBAR", "HYPE", "ONDO", "AAVE", "UNI", "AVAX", "SUI",
 )
 
 CORE_MAX_MARKET_RANK = 30
@@ -49,3 +50,6 @@ PULSE_HISTORY_DAYS = 7
 PULSE_FEED_LIMIT = 12
 PULSE_MOVER_LIMIT = 8
 PULSE_NARRATIVE_LIMIT = 8
+
+PERSONAL_HISTORY_DAYS = 14
+PERSONAL_ATTENTION_LIMIT = 12

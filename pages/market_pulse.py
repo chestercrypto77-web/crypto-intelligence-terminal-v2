@@ -3,13 +3,13 @@ import streamlit as st
 
 from components.cards import metric_card, section_label, status_bar
 from components.layout import page_header
-from config import (
-    APP_VERSION,
-    PULSE_FEED_LIMIT,
-    PULSE_HISTORY_DAYS,
-    PULSE_MOVER_LIMIT,
-    PULSE_NARRATIVE_LIMIT,
-)
+import config
+
+APP_VERSION = getattr(config, "APP_VERSION", "0.9.1")
+PULSE_FEED_LIMIT = getattr(config, "PULSE_FEED_LIMIT", 12)
+PULSE_HISTORY_DAYS = getattr(config, "PULSE_HISTORY_DAYS", 7)
+PULSE_MOVER_LIMIT = getattr(config, "PULSE_MOVER_LIMIT", 8)
+PULSE_NARRATIVE_LIMIT = getattr(config, "PULSE_NARRATIVE_LIMIT", 8)
 from portfolio_config import PORTFOLIO
 from services.category_data import CategoryDataError, get_hot_categories
 from services.conviction import build_conviction_list
