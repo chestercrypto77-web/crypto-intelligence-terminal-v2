@@ -1,17 +1,30 @@
-# Crypto Intelligence Terminal V2 — Release 2.0.0
-Release 2.0 returns the terminal to its original purpose: a pleasant five-minute morning overview, with technical research available only when needed.
+# Crypto Intelligence Terminal V2 — Release 2.1.0
 
-## New front-line experience
-- Morning Brief is the default landing page.
-- One concise overnight market story.
-- Market mood, portfolio health, attention count and high-priority events.
-- Four personal assets that matter most today.
-- Three leaders, three weakening projects, three opportunities and three risks.
-- Technical data moved into collapsed expanders.
-- Specialist pages retained under Deep Dive.
+Release 2.1 is the **Permanent Dark Portfolio Edition**.
 
-## Indicative portfolio profile
-The initial profile is based on the supplied transaction-history snapshot and is intentionally qualitative. Balances and exact position sizes are not final and can be corrected later in `portfolio_profile.py`.
+## Main improvements
+
+- Permanent deep-charcoal dark theme configured at the Streamlit level.
+- No bright white panels or tables.
+- Calmer typography, spacing and restrained colour use.
+- Recent real portfolio balances added from the supplied holdings screenshot.
+- Live estimated AUD portfolio value when market prices are available.
+- Snapshot values remain as a fallback.
+- Portfolio-weighted 24-hour movement estimate.
+- Front-page focus balances position size, conviction and signal strength.
+- “Nothing urgent” reassurance when the system detects no important event.
+- Technical information remains collapsed or under Deep Dive.
+
+## Recent holdings included
+
+BTC, SOL, AVAX, POL, DOT, ZIL, COTI, NEAR, SUI, SUPER, Sonic, AIOZ,
+FIL and SEI.
+
+The balances can be refined later. This release does not treat the snapshot as
+tax or accounting data.
 
 ## Deployment
-Extract the ZIP and upload everything inside the extracted release folder into the root of the GitHub repository, replacing existing files.
+
+Extract the ZIP and upload everything inside the extracted folder into the root
+of the GitHub repository, replacing the existing files. Streamlit will apply
+the permanent dark theme from `.streamlit/config.toml`.

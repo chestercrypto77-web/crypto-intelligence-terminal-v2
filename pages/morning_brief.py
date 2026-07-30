@@ -1,5 +1,7 @@
 import html
+
 import streamlit as st
+
 import config
 from components.layout import page_header
 from portfolio_profile import PORTFOLIO_PROFILE, PROFILE_STATUS
@@ -7,68 +9,205 @@ from services.category_data import CategoryDataError, get_hot_categories
 from services.conviction import build_conviction_list
 from services.event_engine import run_event_detection
 from services.event_store import recent_events
-from services.formatting import compact_currency, signed_percentage, utc_time
+from services.formatting import signed_percentage, utc_time
 from services.market_data import MarketDataError, get_market_snapshot, get_scanner_market
-from services.morning_brief import market_mood, movers, opportunities, overnight_story, portfolio_health, risks, top_attention
+from services.morning_brief import market_mood, overnight_story, portfolio_health, risks
 from services.personal_intelligence import build_personal_market
+from services.portfolio_snapshot import enrich_with_portfolio, portfolio_focus, portfolio_totals
 from services.scanner import build_opportunity_list
 
-APP_VERSION=getattr(config,'APP_VERSION','2.0.0')
-page_header('Good morning, Mark','Your five-minute personal crypto briefing')
+APP_VERSION = getattr(config, "APP_VERSION", "2.1.0")
+
+page_header("Good morning, Mark", "Your calm five-minute crypto briefing")
+
 try:
-    market=get_market_snapshot(); scanner=build_opportunity_list(get_scanner_market())
+    market = get_market_snapshot()
+    scanner = build_opportunity_list(get_scanner_market())
+
     try:
-        categories=get_hot_categories(); leader_change=categories['leaders'][0]['change_24h'] if categories.get('leaders') else None
+        categories = get_hot_categories()
+        leader_change = (
+            categories["leaders"][0]["change_24h"]
+            if categories.get("leaders")
+            else None
+        )
     except CategoryDataError:
-        leader_change=None
-    held={str(a['symbol']).upper() for a in PORTFOLIO_PROFILE if int(a.get('priority',3))<=2}
-    conviction=build_conviction_list(scanner['rows'],leader_change,held)
-    rows=build_personal_market(scanner['rows'],conviction,PORTFOLIO_PROFILE)
-    run_event_detection(rows)
-    mood,mood_note=market_mood(market,rows); health,health_label=portfolio_health(rows)
-    important=top_attention(rows,4); gainers,losers=movers(rows,3); opps=opportunities(rows,3); risk_rows=risks(rows,3)
-    events=recent_events(hours=24,limit=10,minimum_severity='High')
-    st.caption(f"Updated {utc_time(market['updated_at'])} · {PROFILE_STATUS} · Release {APP_VERSION}")
-    a,b,c,d=st.columns(4)
-    a.metric('Market mood',mood,f"{float(market.get('market_cap_change_24h') or 0):+.1f}%")
-    b.metric('Portfolio health',f'{health}/100',health_label)
-    c.metric('Needs attention',len([r for r in important if float(r.get('attention') or 0)>=70]))
-    d.metric('High-priority events',len(events))
-    st.markdown(f"""<div class="morning-story"><div class="morning-kicker">THE OVERNIGHT STORY</div><div class="morning-headline">{html.escape(mood)} market</div><div class="morning-copy">{html.escape(overnight_story(market,rows))}</div><div class="morning-note">{html.escape(mood_note)}</div></div>""",unsafe_allow_html=True)
-    st.subheader('What matters to you today')
-    if important:
-        cols=st.columns(min(4,len(important)))
-        for col,row in zip(cols,important):
-            with col:
-                change=float(row.get('change_24h') or 0); marker='🔥' if float(row.get('attention') or 0)>=85 else '⚡' if change>=0 else '🔻'
-                st.markdown(f"""<div class="morning-asset"><div class="morning-asset-symbol">{marker} {html.escape(row['symbol'])}</div><div class="morning-asset-change">{change:+.1f}%</div><div class="morning-asset-label">Attention {float(row.get('attention') or 0):.0f}/100</div><div class="morning-asset-reason">{html.escape(row.get('reason',''))}</div></div>""",unsafe_allow_html=True)
-    else: st.info('No personal positions are currently producing a strong signal.')
-    left,right=st.columns(2)
+        leader_change = None
+
+    held_symbols = {asset["symbol"] for asset in PORTFOLIO_PROFILE}
+    conviction = build_conviction_list(
+        scanner["rows"],
+        leader_change,
+        held_symbols,
+    )
+    intelligence_rows = build_personal_market(
+        scanner["rows"],
+        conviction,
+        PORTFOLIO_PROFILE,
+    )
+    run_event_detection(intelligence_rows)
+
+    rows = enrich_with_portfolio(intelligence_rows, PORTFOLIO_PROFILE)
+    totals = portfolio_totals(rows)
+    focus_rows = portfolio_focus(rows, 4)
+    health, health_label = portfolio_health(rows)
+    mood, mood_note = market_mood(market, rows)
+    event_rows = recent_events(hours=24, limit=10, minimum_severity="High")
+    risk_rows = risks(rows, 3)
+
+    st.caption(
+        f"Updated {utc_time(market['updated_at'])} · {PROFILE_STATUS} · Release {APP_VERSION}"
+    )
+
+    value = totals["value_aud"]
+    day_change = totals["estimated_day_change_aud"]
+    day_percent = totals["weighted_change_24h"]
+
+    a, b, c, d = st.columns(4)
+    a.metric(
+        "Estimated portfolio",
+        f"${value:,.0f} AUD",
+        f"${day_change:+,.0f} today",
+    )
+    b.metric("Portfolio move", f"{day_percent:+.2f}%", "Weighted 24-hour estimate")
+    c.metric("Portfolio health", f"{health}/100", health_label)
+    d.metric("Market mood", mood, f"{float(market.get('market_cap_change_24h') or 0):+.1f}%")
+
+    if not event_rows and not risk_rows:
+        st.markdown(
+            """
+            <div class="calm-banner">
+              <div class="calm-icon">✓</div>
+              <div>
+                <div class="calm-title">Nothing urgent needs your attention</div>
+                <div class="calm-copy">Your portfolio can be left alone today unless you want to explore the deeper research.</div>
+              </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    st.markdown(
+        f"""
+        <div class="morning-story">
+          <div class="morning-kicker">THE OVERNIGHT STORY</div>
+          <div class="morning-headline">{html.escape(mood)} conditions</div>
+          <div class="morning-copy">{html.escape(overnight_story(market, rows))}</div>
+          <div class="morning-note">{html.escape(mood_note)}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.subheader("What matters to your portfolio today")
+    columns = st.columns(4)
+    for column, row in zip(columns, focus_rows):
+        with column:
+            change = float(row.get("change_24h") or 0)
+            weight = float(row.get("portfolio_weight") or 0)
+            value_aud = float(row.get("live_value_aud") or 0)
+            attention = float(row.get("attention") or 0)
+            marker = "🔥" if attention >= 85 else "⚡" if attention >= 70 else "●"
+            st.markdown(
+                f"""
+                <div class="morning-asset">
+                  <div class="morning-asset-top">
+                    <span class="morning-asset-symbol">{marker} {html.escape(row["symbol"])}</span>
+                    <span class="portfolio-weight">{weight:.1f}%</span>
+                  </div>
+                  <div class="morning-asset-change">{change:+.1f}%</div>
+                  <div class="morning-asset-value">${value_aud:,.0f} AUD</div>
+                  <div class="morning-asset-label">{html.escape(row.get("group", "Holding"))} · Attention {attention:.0f}</div>
+                  <div class="morning-asset-reason">{html.escape(row.get("reason", ""))}</div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+    left, right = st.columns([1.15, 0.85])
     with left:
-        st.subheader('Biggest movers')
-        for title,items in (('Leaders',gainers),('Under pressure',losers)):
-            st.markdown(f'**{title}**')
-            for row in items: st.markdown(f'<div class="brief-row"><strong>{html.escape(row["symbol"])}</strong><span>{float(row.get("change_24h") or 0):+.1f}%</span></div>',unsafe_allow_html=True)
+        st.subheader("Your holdings")
+        for row in sorted(rows, key=lambda item: float(item.get("live_value_aud") or 0), reverse=True)[:7]:
+            st.markdown(
+                f"""
+                <div class="holding-row">
+                  <div>
+                    <strong>{html.escape(row["name"])}</strong>
+                    <span class="holding-symbol">{html.escape(row["symbol"])}</span>
+                  </div>
+                  <div class="holding-right">
+                    <strong>${float(row.get("live_value_aud") or 0):,.0f}</strong>
+                    <span class="holding-change">{float(row.get("change_24h") or 0):+.1f}%</span>
+                  </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
     with right:
-        st.subheader("Today's shortlist")
-        if opps:
-            for i,row in enumerate(opps,1): st.markdown(f"""<div class="brief-list-item"><div class="brief-list-number">{i}</div><div><strong>{html.escape(row['name'])}</strong><div>{html.escape(row.get('reason',''))}</div></div></div>""",unsafe_allow_html=True)
-        else: st.caption('No clear momentum opportunity currently meets the shortlist rules.')
-        st.markdown('**Risks to watch**')
+        st.subheader("Today’s attention")
+        if event_rows:
+            for event in event_rows[:3]:
+                st.markdown(
+                    f"""
+                    <div class="attention-line">
+                      <div class="attention-dot"></div>
+                      <div>
+                        <strong>{html.escape(event["symbol"])} · {html.escape(event["title"])}</strong>
+                        <div>{html.escape(event["detail"])}</div>
+                      </div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True,
+                )
+        else:
+            st.caption("No high-priority events were detected in the past 24 hours.")
+
         if risk_rows:
-            for row in risk_rows: st.markdown(f'<div class="risk-line">⚠️ <strong>{html.escape(row["symbol"])}</strong> — {html.escape(row.get("reason",""))}</div>',unsafe_allow_html=True)
-        else: st.caption('No major personal-market weakness currently detected.')
+            st.markdown("**Risks to watch**")
+            for row in risk_rows:
+                st.markdown(
+                    f'<div class="risk-line">⚠️ <strong>{html.escape(row["symbol"])}</strong> — '
+                    f'{html.escape(row.get("reason", ""))}</div>',
+                    unsafe_allow_html=True,
+                )
+
     st.divider()
-    with st.expander('Portfolio details'):
-        st.caption('Indicative classifications based on the supplied transaction-history snapshot. Balances and position sizes can be corrected later.')
-        st.dataframe([{'Project':r['name'],'Symbol':r['symbol'],'Classification':r['group'],'24h':signed_percentage(r.get('change_24h')) if r.get('available') else '—','7d':signed_percentage(r.get('change_7d')) if r.get('available') else '—','Attention':r.get('attention',0),'State':r.get('momentum_state','Data unavailable')} for r in rows if int(r.get('priority',3))<=2],use_container_width=True,hide_index=True)
-    with st.expander('Market details'):
-        m1,m2,m3,m4=st.columns(4); m1.metric('Market capitalisation',compact_currency(market.get('total_market_cap'))); m2.metric('24h volume',compact_currency(market.get('total_volume'))); m3.metric('BTC dominance',f"{float(market.get('btc_dominance') or 0):.1f}%"); m4.metric('ETH dominance',f"{float(market.get('eth_dominance') or 0):.1f}%")
-    with st.expander('Event details'):
-        if events:
-            for e in events[:8]: st.markdown(f"**{e['severity']} · {e['symbol']}** — {e['title']}  \n{e['detail']}")
-        else: st.caption('No high-priority events in the past 24 hours.')
-    with st.expander('How this morning brief works'):
-        st.write('The front page deliberately limits itself to the overnight story, four personal projects, the largest movers, three opportunities and three risks. Full technical engines remain under Deep Dive.')
+
+    with st.expander("View the complete portfolio"):
+        st.dataframe(
+            [
+                {
+                    "Project": row["name"],
+                    "Balance": row["balance"],
+                    "Est. value (AUD)": round(float(row["live_value_aud"]), 2),
+                    "Weight": f'{float(row["portfolio_weight"]):.1f}%',
+                    "24h": signed_percentage(row.get("change_24h")) if row.get("available") else "—",
+                    "Group": row["group"],
+                    "State": row.get("momentum_state", "Data unavailable"),
+                }
+                for row in sorted(
+                    rows,
+                    key=lambda item: float(item.get("live_value_aud") or 0),
+                    reverse=True,
+                )
+            ],
+            use_container_width=True,
+            hide_index=True,
+        )
+
+    with st.expander("View market details"):
+        m1, m2, m3 = st.columns(3)
+        m1.metric("BTC dominance", f"{float(market.get('btc_dominance') or 0):.1f}%")
+        m2.metric("ETH dominance", f"{float(market.get('eth_dominance') or 0):.1f}%")
+        m3.metric("High-priority events", len(event_rows))
+
+    with st.expander("About these portfolio figures"):
+        st.write(
+            "Balances are taken from the recent screenshot you supplied. Values are estimated "
+            "using live market prices when available, with the screenshot values used as a fallback. "
+            "This is a portfolio-awareness tool, not tax or financial accounting software."
+        )
+
 except MarketDataError as exc:
     st.error(str(exc))
